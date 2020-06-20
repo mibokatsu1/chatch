@@ -1,3 +1,66 @@
 * {
   box-sizing: border-box;
 }
+
+.list {
+  list-style: none;
+}
+
+.link {
+  text-decoration: none;
+  color: blue
+}
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+}
+
+.header {
+  width: 100%;
+  height: 50px;
+  background-color: skyblue;
+  display: flex;
+  align-items: center;
+  &__topLinks {
+    width: 400px;
+    display: flex;
+    
+    background-color: yellow;
+    .headerTopLink {
+      padding: 5px 10px;
+      
+    }
+  }
+  .search {
+    margin-right: 20px;
+  }
+  .title {
+    width: 100%;
+  }
+  .userIcon {
+    margin-right: 50px;
+  }
+}
+
+.body {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  .sideBar {
+    width: 200px;
+    height: 100%;
+    background-color: lightgreen;
+  }
+  .main {
+    width: 100%;
+    height: 100%;
+    background-color: lightyellow;
+  }
+}
+
+.footer {
+  width: 100%;
+  height: 200px;
+  background-color: lightslategray;
+}
