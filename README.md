@@ -19,6 +19,7 @@
 |password|integer|null: false|
 |nickname|string|null: false|
 |password confirmation|integer|null: false|
+|image|text|
 
 ### Association
 - has_many :group_users
