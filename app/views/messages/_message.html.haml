@@ -1,19 +1,64 @@
-.header
-  %ul.header__topLinks
-    %li.list
-      = link_to 'トップページ', '#', class: "link headerTopLink headerLink__TopPage" 
-    %li.list
-      = link_to 'チャット', '#', class: "link headerTopLink headerLink__chat"
-  = form_with url: root_path, method: :get, local: true do |f|
-    = f.text_field :search, class: 'search', placeholder: "チャット検索"
-  %h3.title
-    チャットｃｈ
-  .userIcon
-    %ul.ul.userIcon__child
-      %li.list
-        = link_to '#', class: "link headerLink headerLink__myPage" do
-          = icon('fas', 'edit', class: "side-box__icon create__new--group__icon")
-.body
-  .sideBar
-  .main
-.footer
+.main__message
+  .groupHeader
+    .groupHeader__box
+      %h4.groupHeader__title
+        グループ名
+      = icon('fas', 'cog', class: "icon icon__config")
+    .groupHeader__member
+      参加メンバー：
+  .messenger
+    .messenger__box
+      .messenger__box__img
+        画像
+      .messenger__box-2
+        .messenger__box-2__name
+          山田
+        .messenger__box-2__message
+          こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは 
+      .messenger__box-3
+        .messenger__box-3__edit
+          = link_to '削除', '#', class: "link delete" 
+        .messenger__box-3__created_at
+          2020/6/20
+  .messenger
+    .messenger__box
+      .messenger__box__img
+        画像
+      .messenger__box-2
+        .messenger__box-2__name
+          山田
+        .messenger__box-2__message
+          こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは 
+      .messenger__box-3
+        .messenger__box-3__edit
+          = link_to '削除', '#', class: "link delete" 
+        .messenger__box-3__created_at
+          2020/6/20
+  .messenger
+    .messenger__box
+      .messenger__box__img
+        画像
+      .messenger__box-2
+        .messenger__box-2__name
+          山田
+        .messenger__box-2__message
+          こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは 
+      .messenger__box-3
+        .messenger__box-3__edit
+          = link_to '削除', '#', class: "link delete" 
+        .messenger__box-3__created_at
+          2020/6/20
+  .messenger
+    .messenger__box
+      .messenger__box__img
+        画像
+      .messenger__box-2
+        .messenger__box-2__name
+          山田
+        .messenger__box-2__message
+          こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは 
+      .messenger__box-3
+        .messenger__box-3__edit
+          = link_to '削除', '#', class: "link delete" 
+        .messenger__box-3__created_at
+          2020/6/20
