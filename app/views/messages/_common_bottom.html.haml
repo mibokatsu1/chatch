@@ -1,3 +1,8 @@
-.footer
-  .copo
-    pre
+.message__footer
+  %form.footer__form
+    .footer__form__box
+      %textarea.input.footer__form__text{placeholder: 'type a message'}
+      %label.footer__form__label
+        = icon('far', 'image', class: 'footer__form__icon')
+        %input.footer__form__file{type: "file"}
+    %input.footer__form__btn{type: "submit", value: "Send"}
