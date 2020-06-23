@@ -26,16 +26,18 @@
         = current_user.name
     %p1
       参加中のグループ
-    .sideBar__group
-      .sideBar__group__name
-        グループ１
-      .sideBar__group__box
-        .sideBar__group__box__messenger
-          山田
-        .sideBar__group__box__created_at
-          2020/6/1
-      .sideBar__group__message
-        こんにちは
+    .sideBar__list
+      - current_user.groups.each do |group|
+        = link_to '#', class: "sideBar__group" do
+          .sideBar__group__name
+            = group.name
+          .sideBar__group__box
+            .sideBar__group__box__messenger
+              山田
+            .sideBar__group__box__created_at
+              2020/6/1
+          .sideBar__group__message
+            こんにちは
     .sideBar__group
       .sideBar__group__name
         グループ１
