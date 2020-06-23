@@ -3,7 +3,9 @@
     .groupHeader__box
       %h4.groupHeader__title
         グループ名
-      = icon('fas', 'cog', class: "icon icon__config")
+      = link_to "#", class: "link__icon__config" do
+        = icon('fas', 'cog', class: "icon icon__config")
+        
     .groupHeader__member
       参加メンバー：
   .messenger
