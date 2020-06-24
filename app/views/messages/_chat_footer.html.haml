@@ -1,11 +1,24 @@
-.message__footer
-  = form_with model: [@group, @message], html: {class: "footer__form"}, local: true do |f|
-    -# messagesのルーティングがgroupsにネストしているので、２つの引数を渡す
-    -# @groupどこにメッセージを送信するか
-    -# @messageメッセージモデルのからのインスタンスMeaage.new
-    .footer__form__box
-      = f.text_field :content, class: 'footer__form__text', placeholder: 'type a message'
-      = f.label :image, class: 'footer__form__label' do
-        = icon('far', 'image', class: 'footer__form__icon')
-        = f.file_field :image, class: 'Hidden footer__form__file'
-    = f.submit 'Send', class: 'footer__form__btn'
+.chat__footer
+  .groupfooter
+    .groupfooter__box
+      %p.groupfooter__title
+        = @group.name
+      = link_to edit_group_path(@group), class: "link__icon__config" do
+        = icon('fas', 'cog', class: "icon icon__config")
+    .groupfooter__member
+      %p
+        参加メンバー：
+        - @group.users.each do |user|
+          = user.name
+
+  .message__footer
+    = form_with model: [@group, @message], html: {class: "footer__form"}, local: true do |f|
+      -# messagesのルーティングがgroupsにネストしているので、２つの引数を渡す
+      -# @groupどこにメッセージを送信するか
+      -# @messageメッセージモデルのからのインスタンスMeaage.new
+      .footer__form__box
+        = f.text_field :content, class: 'footer__form__text', placeholder: 'type a message'
+        = f.label :image, class: 'footer__form__label' do
+          = icon('far', 'image', class: 'footer__form__icon')
+          = f.file_field :image, class: 'Hidden footer__form__file'
+      = f.submit 'Send', class: 'footer__form__btn'
