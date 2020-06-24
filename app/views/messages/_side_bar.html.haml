@@ -1,0 +1,21 @@
+.Side-bar
+  .Side-bar__header
+    .Side-bar__header__side-box
+      .Side-bar__header__side-box__user-name
+        = current_user.name
+      %ul.Side-bar__header__side-box__icon
+        %li.Side-bar__header__side-box__icon--edit
+          =link_to new_group_path, class: "link__create__new--group" do
+            = icon('fas', 'edit', class: "side-box__icon create__new--group__icon")
+        %li.Side-bar__header__side-box__icon--config
+          =link_to edit_user_path(current_user), class: "link__user--config" do
+            = icon('fas', 'cog', class: "side-box__icon user--config__icon")
+  .Side-bar__body
+    - current_user.groups.each do |group|
+      .Side-bar__body__group
+        = link_to group_messages_path(group), class: "link" do
+          .Side-bar__body__group-name
+            = group.name
+          .Side-bar__body__group-message
+            最新メッセージ
+            -# = group.show_last_message
