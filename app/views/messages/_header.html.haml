@@ -1,0 +1,18 @@
+%ul.header__topLinks
+  %li.list.headerLists.headerList__TopPage
+    = icon('fas', 'home', class: "icon icon__home")
+    = link_to root_path, class: "link headerTopLink headerLink__TopPage" do
+      トップページ
+  %li.list.headerLists.headerList__chat
+    = icon('far', 'comments', class: "icon icon__group")
+    = link_to new_group_path, class: "link headerTopLink headerLink__chat" do
+      チャット
+= form_with url: root_path, method: :get, local: true do |f|
+  = f.text_field :search, class: 'search', placeholder: "チャット検索"
+%h3.title
+  チャットｃｈ
+.userIcon
+  %ul.ul.userIcon__child
+    %li.list
+      = link_to edit_user_path(current_user), class: "link headerLink headerLink__myPage" do
+        = icon('fas', 'user-circle', class: "iconLg icon__user")
