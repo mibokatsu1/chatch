@@ -37,22 +37,7 @@
             .sideBar__group__box__created_at
               2020/6/1
           .sideBar__group__message
-            こんにちは
-    .sideBar__group
-      .sideBar__group__name
-        グループ１
-      .sideBar__group__message
-        こんにちは
-    .sideBar__group
-      .sideBar__group__name
-        グループ１
-      .sideBar__group__message
-        こんにちは
-    .sideBar__group
-      .sideBar__group__name
-        グループ１
-      .sideBar__group__message
-        こんにちは
+            = group.show_last_message
   .main
-    -# = render "recommend"
+    -# = render "messages/recommend"
     -# = render "message_area"
