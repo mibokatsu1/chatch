@@ -1,0 +1,16 @@
+.main__message
+  .groupHeader
+    .groupHeader__box
+      %h4.groupHeader__title
+        = @group.name
+      = link_to edit_group_path(@group), class: "link__icon__config" do
+        = icon('fas', 'cog', class: "icon icon__config")
+        
+    .groupHeader__member
+      参加メンバー：
+      - @group.users.each do |user|
+        = user.name
+
+.messenger
+  = render @messages
+  -# = render partial: 'message', collection: @messages

@@ -1,0 +1,40 @@
+.messenger__box
+  .messenger__box__img
+    画像
+  .messenger__box-2
+    .messenger__box-2__name
+      = message.user.name
+    .messenger__box-2__message
+      - if message.content.present?
+        %p.Message__content
+          = message.content
+      = image_tag message.image.url, class: 'Message__image' if message.image.present?
+  .messenger__box-3
+    .messenger__box-3__edit
+      = link_to '削除', '#', class: "link delete" 
+    .messenger__box-3__created_at
+      = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+
+  .line-bc
+    -# ①LINE会話全体を囲う
+    .balloon6
+      -# ②左コメント始
+      .faceicon
+        .faceicon__img
+      .chatting
+        .says
+          %p.says__p
+            -# 左ふきだし文
+            - if message.content.present?
+              %p.Message__content
+                = message.content
+            = image_tag message.image.url, class: 'Message__image' if message.image.present?
+
+    .mycomment
+      -# ③右コメント始
+      %p.mycomment__p
+        -# 右ふきだし文
+        - if message.content.present?
+          %p.Message__content
+            = message.content
+        = image_tag message.image.url, class: 'Message__image' if message.image.present?

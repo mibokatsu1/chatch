@@ -1,81 +1,16 @@
-.main__message
-  .groupHeader
-    .groupHeader__box
-      %h4.groupHeader__title
-        グループ名
-      = link_to "#", class: "link__icon__config" do
-        = icon('fas', 'cog', class: "icon icon__config")
-        
-    .groupHeader__member
-      参加メンバー：
-  .messenger
-    .messenger__box
-      .messenger__box__img
-        画像
-      .messenger__box-2
-        .messenger__box-2__name
-          山田
-        .messenger__box-2__message
-          こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは 
-      .messenger__box-3
-        .messenger__box-3__edit
-          = link_to '削除', '#', class: "link delete" 
-        .messenger__box-3__created_at
-          2020/6/20
-  .messenger
-    .messenger__box
-      .messenger__box__img
-        画像
-      .messenger__box-2
-        .messenger__box-2__name
-          山田
-        .messenger__box-2__message
-          こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは 
-      .messenger__box-3
-        .messenger__box-3__edit
-          = link_to '削除', '#', class: "link delete" 
-        .messenger__box-3__created_at
-          2020/6/20
-  .messenger
-    .messenger__box
-      .messenger__box__img
-        画像
-      .messenger__box-2
-        .messenger__box-2__name
-          山田
-        .messenger__box-2__message
-          こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは 
-      .messenger__box-3
-        .messenger__box-3__edit
-          = link_to '削除', '#', class: "link delete" 
-        .messenger__box-3__created_at
-          2020/6/20
-  .messenger
-    .messenger__box
-      .messenger__box__img
-        画像
-      .messenger__box-2
-        .messenger__box-2__name
-          山田
-        .messenger__box-2__message
-          こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは こんにちは 
-      .messenger__box-3
-        .messenger__box-3__edit
-          = link_to '削除', '#', class: "link delete" 
-        .messenger__box-3__created_at
-          2020/6/20
-  .line-bc
-    -# ①LINE会話全体を囲う
-    .balloon6
-      -# ②左コメント始
-      .faceicon
-        .faceicon__img
-      .chatting
-        .says
-          %p.says__p
-            左ふきだし文
-
-    .mycomment
-      -# ③右コメント始
-      %p.mycomment__p
-        右ふきだし文
+.messenger__box
+  .messenger__box__img
+    画像
+  .messenger__box-2
+    .messenger__box-2__name
+      = message.user.name
+    .messenger__box-2__message
+      - if message.content.present?
+        %p.Message__content
+          = message.content
+      = image_tag message.image.url, class: 'Message__image' if message.image.present?
+  .messenger__box-3
+    .messenger__box-3__edit
+      = link_to '削除', '#', class: "link delete" 
+    .messenger__box-3__created_at
+      = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
