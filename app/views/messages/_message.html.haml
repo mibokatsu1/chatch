@@ -14,19 +14,3 @@
       = link_to '削除', '#', class: "link delete" 
     .messenger__box-3__created_at
       = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
-
-  .line-bc
-    -# ①LINE会話全体を囲う
-    .balloon6
-      -# ②左コメント始
-      .faceicon
-        .faceicon__img
-      .chatting
-        .says
-          %p.says__p
-            左ふきだし文
-
-    .mycomment
-      -# ③右コメント始
-      %p.mycomment__p
-        右ふきだし文
