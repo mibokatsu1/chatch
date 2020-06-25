@@ -3,8 +3,8 @@ class CreateComments < ActiveRecord::Migration[6.0]
     create_table :comments do |t|
       t.string :content
       t.string :image
-      t.integer :user_id
-      t.integer :all_users_chat_id
+      t.references :user, foreign_key: true
+      t.references :all_users_chat, foreign_key: true
       t.timestamps
     end
   end
