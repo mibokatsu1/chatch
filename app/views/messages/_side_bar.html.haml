@@ -14,8 +14,8 @@
         = group.name
       .sideBar__group__box
         .sideBar__group__box__messenger
-          山田
+          = group.show_last_messenger
         .sideBar__group__box__created_at
-          2020/6/1
+          = group.show_last_message_created_at
       .sideBar__group__message
         = group.show_last_message

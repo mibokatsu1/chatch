@@ -95,6 +95,7 @@ p1 {
     height: 100%;
     background-color: lightgreen;
     padding: 10px;
+    overflow: scroll;
     .user {
       margin-bottom: 20px;
       &__image {
