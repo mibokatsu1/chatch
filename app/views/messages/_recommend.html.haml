@@ -2,84 +2,20 @@
   %p1
     オススメのチャット
   .recommend
-    .recommend__group
-      - @all_users_chats.each do |all_users_chat|
-        = render partial: "all_users_chats/all_users_chat", locals: { all_users_chat: all_users_chat }
-        .recommend__group__img
-          画像
-        .recommend__group__name
-          グループ１１
-        .recommend__group__message
-          コメント
+    - @all_users_chats.each_with_index do |all_users_chat, i|
+
+      .recommend__group
+        = link_to all_users_chat_path(all_users_chat) do
+          .recommend__group__img
+            画像
+          .recommend__group__name
+            = all_users_chat.name
+          .recommend__group__message
+            コメント
         .recommend__group__tag
           タグ
-    .recommend__group
-      .recommend__group__img
-        画像
-      .recommend__group__name
-        グループ１１
-      .recommend__group__message
-        コメント
-      .recommend__group__tag
-        タグ
-    .recommend__group
-      .recommend__group__img
-        画像
-      .recommend__group__name
-        グループ１１
-      .recommend__group__message
-        コメント
-      .recommend__group__tag
-        タグ
-    .recommend__group
-      .recommend__group__img
-        画像
-      .recommend__group__name
-        グループ１１
-      .recommend__group__message
-        コメント
-      .recommend__group__tag
-        タグ
-  .boder
-  %p1
-    アクセスランキング
-  .accessLanking
-    .accessLanking__group
-      .accessLanking__group__img
-        画像
-      .accessLanking__group__name
-        グループ１１
-      .recommend__group__message
-        コメント
-      .accessLanking__group__tag
-        タグ
-    .accessLanking__group
-      .accessLanking__group__img
-        画像
-      .accessLanking__group__name
-        グループ１１
-      .recommend__group__message
-        コメント
-      .accessLanking__group__tag
-        タグ
-    .accessLanking__group
-      .accessLanking__group__img
-        画像
-      .accessLanking__group__name
-        グループ１１
-      .recommend__group__message
-        コメント
-      .accessLanking__group__tag
-        タグ
-    .accessLanking__group
-      .accessLanking__group__img
-        画像
-      .accessLanking__group__name
-        グループ１１
-      .recommend__group__message
-        コメント
-      .accessLanking__group__tag
-        タグ
+      - break if i == 5
+
   .test
     = link_to all_users_chats_path do
       全体公開チャットへリンク

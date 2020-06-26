@@ -30,6 +30,11 @@ p1 {
   font-size: 15px;
 }
 
+.recommendText {
+  color: black;
+  font-size: 10px;
+}
+
 .commonText-side {
   font-size: 10px;
   color: black;
@@ -179,9 +184,10 @@ p1 {
       display: flex;
       margin-top: 10px;
       margin-bottom: 20px;
-      @extend.commonText-main;
+      @extend.recommendText;
       &__group {
         margin-right: 10px;
+        
         background-color: whitesmoke;
         &__img {
           width: 200px;
