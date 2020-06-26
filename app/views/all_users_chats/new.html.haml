@@ -1,0 +1,6 @@
+.contents.row
+  .container
+    = form_with(model: @all_users_chat, local: true) do |form|
+      %h3
+        投稿する
+      = render partial: "form", locals: { form: form }
