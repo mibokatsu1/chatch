@@ -1,12 +1,12 @@
 .wrapper
-  .header2
+  .test
     = link_to root_path do
       トップメージへ戻る
-  .body2
+  .test
     全体公開チャット
-    .send_content
+    .test
       = link_to "/all_users_chats/new" do
-        投稿する
-    .contents
+        新しい全体チャットを投稿する
+    .test
       - @all_users_chats.each do |all_users_chat|
         = render partial: "all_users_chat", locals: { all_users_chat: all_users_chat }

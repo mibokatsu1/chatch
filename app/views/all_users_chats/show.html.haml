@@ -1,1 +1,24 @@
-詳細ベージです
+.test
+  = link_to root_path do
+    トップページへ戻る
+.test
+  = link_to all_users_chats_path do
+    全体チャット一覧へ戻る
+.test
+  詳細ページです
+.test
+  = @all_users_chat.name
+.test
+  = @all_users_chat.user.name
+
+.test
+  - if @comments
+    -@comments.each do |comment|
+      .test
+        = comment.user.name
+        = comment.content 
+
+.test
+  = form_with(model: [@all_users_chat, @comment], local: true) do |form|
+    = form.text_area :content, placeholder: "コメントする", rows: "3"
+    = form.submit "SEND"
