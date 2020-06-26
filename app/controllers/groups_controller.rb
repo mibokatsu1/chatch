@@ -1,5 +1,7 @@
 class GroupsController < ApplicationController
   def index
+    @all_users_chats = AllUsersChat.all
+    
   end
 
   def new

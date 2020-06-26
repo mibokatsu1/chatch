@@ -1,8 +1,7 @@
 .test
-  .test
-    = all_users_chat.name
-  .test
-    = all_users_chat.user.name
-  .test
-    = link_to all_users_chat_path(all_users_chat.id), method: :get do
-      詳細
+  = all_users_chat.name
+.test
+  = all_users_chat.user.name
+.test
+  = link_to all_users_chat_path(all_users_chat.id), method: :get do
+    詳細
