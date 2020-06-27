@@ -7,7 +7,7 @@
       .recommend__group
         = link_to all_users_chat_path(all_users_chat) do
           .recommend__group__img
-            画像
+            = all_users_chat.show_last_image
           .recommend__group__name
             = all_users_chat.name
           .recommend__group__message

@@ -16,4 +16,13 @@ class AllUsersChat < ApplicationRecord
     end
   end
 
+  def show_last_image
+    @images = Comment.select("image")
+    if(last_image = @images.last).present?
+      last_image
+    else
+      'まだ画像はありません。'
+    end
+  end
+
 end
