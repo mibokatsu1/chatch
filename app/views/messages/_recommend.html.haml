@@ -11,11 +11,12 @@
           .recommend__group__name
             = all_users_chat.name
           .recommend__group__message
-            コメント
+            = all_users_chat.show_last_comment
+
         .recommend__group__tag
           タグ
       - break if i == 5
 
   .test
     = link_to all_users_chats_path do
-      全体公開チャットへリンク
+      全体公開チャット一覧ページへ
