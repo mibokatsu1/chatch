@@ -16,9 +16,11 @@
     -@comments.each do |comment|
       .test
         = comment.user.name
-        = comment.content 
+        = comment.content
+        = image_tag comment.image.url if comment.image.present?
 
 .test
   = form_with(model: [@all_users_chat, @comment], local: true) do |form|
-    = form.text_area :content, placeholder: "コメントする", rows: "3"
+    = form.text_area :content, placeholder: "コメントする", rows: "6"
+    = form.file_field :image, placeholder: "Image Url"
     = form.submit "SEND"
