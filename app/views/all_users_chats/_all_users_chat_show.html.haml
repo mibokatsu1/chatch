@@ -1,23 +1,15 @@
-.test
-  = link_to all_users_chats_path do
+.auc_show__returnAuc
+  = link_to all_users_chats_path, class: "link p15" do
     全体チャット一覧へ戻る
-.test
-  詳細ページです
-.test
+.auc_show__chatName.p25
   = @all_users_chat.name
-.test
+.auc_show__createUserName.p15
   = @all_users_chat.user.name
 
-.test
+.auc_show
   - if @comments
     -@comments.each do |comment|
-      .test
+      .auc_show
         = comment.user.name
         = comment.content
         = image_tag comment.image.url if comment.image.present?
-
-.test
-  = form_with(model: [@all_users_chat, @comment], local: true) do |form|
-    = form.text_area :content, placeholder: "コメントする", rows: "6"
-    = form.file_field :image, placeholder: "Image Url"
-    = form.submit "SEND"
