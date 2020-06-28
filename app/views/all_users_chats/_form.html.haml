@@ -1,3 +1,10 @@
 -# = form.text_field :image, placeholder: "Image Url"
-= form.text_area :name, placeholder: "text" , rows: "10"
-= form.submit "SEND"
+.SettingGroupForm__field
+  .SettingGroupForm__leftField
+    = form.label :name, "全体公開チャットのタイトル", class: 'SettingGroupForm__label'
+  .SettingGroupForm__rightField
+    = form.text_area :name, placeholder: "text" , rows: "4"
+.SettingGroupForm__field
+  .SettingGroupForm__leftField
+  .SettingGroupForm__rightField
+    = form.submit class: 'SettingGroupForm__button'
