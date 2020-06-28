@@ -60,6 +60,11 @@ p2 {
   font-size: 15px;
 }
 
+.p8 {
+  font-size: 8px;
+  color: white;
+}
+
 .black {
   color: black;
 }
@@ -192,7 +197,7 @@ p2 {
       margin-bottom: 70px;
       &__box {
         display: flex;
-        margin-bottom: 5px;
+        margin-bottom: 40px;
         &__img {
           width: 60px;
           height: 40px;

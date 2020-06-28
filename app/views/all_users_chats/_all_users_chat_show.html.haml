@@ -4,12 +4,24 @@
 .auc_show__chatName.p25
   = @all_users_chat.name
 .auc_show__createUserName.p15
+  チャット作成者：  
   = @all_users_chat.user.name
 
-.auc_show
-  - if @comments
-    -@comments.each do |comment|
-      .auc_show
-        = comment.user.name
-        = comment.content
-        = image_tag comment.image.url if comment.image.present?
+.auc_show__comment
+  -@comments.each do |comment|
+    .messenger__box
+      .messenger__box__img
+        アバター
+      .messenger__box-2
+        .messenger__box-2__name.p15
+          = comment.user.name
+        .messenger__box-2__message
+          - if comment.content.present?
+            .Message__content.p15
+              = comment.content
+          = image_tag comment.image.url, class: 'Message__image' if comment.image.present?
+      .messenger__box-3
+        .messenger__box-3__edit
+          = link_to '削除', '#', class: "link delete text-small" 
+        .messenger__box-3__created_at.p8
+          = comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
