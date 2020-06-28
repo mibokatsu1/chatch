@@ -1,0 +1,12 @@
+.common__footer
+  = form_with(model: [@all_users_chat, @comment], local: true) do |form|
+    = form.text_area :content, placeholder: "コメントする", rows: "6"
+    = form.file_field :image, placeholder: "Image Url"
+    = form.submit "SEND"
+  -# = form_with(model: [@all_users_chat, @comment], local: true) do |form|
+  -#   .footer__form__box
+  -#     = form.text_area :content, placeholder: "コメントする", rows: "6"
+  -#     .footer__form__label
+  -#       .footer__form__icon
+  -#       = form.file_field :image, placeholder: "Image Url"
+  -#   = form.submit "SEND"
