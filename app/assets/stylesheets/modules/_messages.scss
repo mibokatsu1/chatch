@@ -7,6 +7,11 @@ img {
   height: auto;
 }
 
+.hidden_boder {
+  border: none;
+  margin-bottom: 50px;  
+}
+
 .list {
   list-style: none;
 }
@@ -14,6 +19,11 @@ img {
 .link {
   text-decoration: none;
   color: white;
+}
+
+.link-black {
+  text-decoration: none;
+  color: black;
 }
 
 .icon {
@@ -28,6 +38,25 @@ img {
 p1 {
   color: white;
   font-size: 15px;
+}
+
+p2 {
+  color: black;
+  font-size: 15px;
+}
+
+.p3 {
+  color: white;
+  font-size: 20px;
+}
+
+.p4 {
+  color: white;
+  font-size: 15px;
+}
+
+.text-small {
+  font-size: 8px;
 }
 
 .recommendText {
@@ -87,7 +116,7 @@ p1 {
     color: white;
   }
   .userIcon {
-    margin-top: 20px;
+    margin-top: 5px;
   }
 }
 
@@ -165,24 +194,25 @@ p1 {
             margin-bottom: 10px;
           }
           &__message {
-            padding: 6px;
+            // padding: 6px;
             margin-left: 20px;
             margin-right: 10px;
-            background-color:whitesmoke;
+            // background-color:whitesmoke;
           }
         }
         &-3 {
           align-self: flex-end;
           &__created_at {
             margin-right: 100px;
-
           }  
         }
       }
     }
     .recommend {
       display: flex;
-      margin-top: 10px;
+      padding-top: 15px;
+      padding-left: 20px;
+      // margin-top: 10px;
       margin-bottom: 20px;
       @extend.recommendText;
       &__group {
@@ -257,12 +287,15 @@ p1 {
     width: 100%;
     &__box{
       display: flex;
+      .groupfooter__title {
+        margin-right: 5px;
+      }
     }
   }
   .common__footer {
     width: 100%;
     height: 100%;
-    background-color: gray;
+    // background-color: gray;
     .footer__form {
       display: flex;
       align-items: center;

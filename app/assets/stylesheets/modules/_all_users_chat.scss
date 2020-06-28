@@ -1,3 +1,22 @@
-.allUsersChat_wrapper {
-  background-color: #7da4cd;
+.auc__body {
+  height: 100%;
+  width: 100%;
+  padding: 30px;
+}
+
+.auc__feild {
+  &__linkForm {
+    margin-bottom: 20px;
+  }
+  &__chatName {
+    margin-bottom: 10px;
+  }
+
+  &__userName {
+    margin-bottom: 30px;
+  }
+}
+
+.form__auc {
+  margin-left: 300px;
 }

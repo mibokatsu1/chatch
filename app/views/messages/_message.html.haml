@@ -1,6 +1,6 @@
 .messenger__box
   .messenger__box__img
-    画像
+    アバター
   .messenger__box-2
     .messenger__box-2__name
       = message.user.name
@@ -11,6 +11,6 @@
       = image_tag message.image.url, class: 'Message__image' if message.image.present?
   .messenger__box-3
     .messenger__box-3__edit
-      = link_to '削除', '#', class: "link delete" 
-    .messenger__box-3__created_at
+      = link_to '削除', '#', class: "link delete text-small" 
+    .messenger__box-3__created_at.text-small
       = message.created_at.strftime("%Y年%m月%d日 %H時%M分")

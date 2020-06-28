@@ -2,10 +2,10 @@
   %p1
     オススメのチャット
   .recommend
-    - @all_users_chats.each_with_index do |all_users_chat, i|
+    - @all_users_chats.first(5).each do |all_users_chat|
 
       .recommend__group
-        = link_to all_users_chat_path(all_users_chat) do
+        = link_to all_users_chat_path(all_users_chat), class: "link-black" do
           .recommend__group__img
             = all_users_chat.show_last_image
           .recommend__group__name
@@ -15,8 +15,19 @@
 
         .recommend__group__tag
           タグ
-      - break if i == 5
 
-  .test
-    = link_to all_users_chats_path do
-      全体公開チャット一覧ページへ
+  .hidden_boder
+  .recommend
+    - @all_users_chats.slice(5..10).each do |all_users_chat, |
+
+      .recommend__group
+        = link_to all_users_chat_path(all_users_chat), class: "link-black" do
+          .recommend__group__img
+            = all_users_chat.show_last_image
+          .recommend__group__name
+            = all_users_chat.name
+          .recommend__group__message
+            = all_users_chat.show_last_comment
+
+        .recommend__group__tag
+          タグ

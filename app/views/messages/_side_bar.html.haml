@@ -3,7 +3,7 @@
     = current_user.image
   = link_to edit_user_path(current_user), class: "user__name" do
     = current_user.name
-%p1
+%p2
   参加中のグループ
 .sideBar__list
   - current_user.groups.each do |group|
