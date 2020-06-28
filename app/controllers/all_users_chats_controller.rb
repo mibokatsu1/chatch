@@ -7,8 +7,13 @@ class AllUsersChatsController < ApplicationController
     @all_users_chat = AllUsersChat.new
   end
   def create
-
-    AllUsersChat.create(all_users_chat_params)
+    # @all_users_chat = AllUsersChat.new
+    # AllUsersChat.create(all_users_chat_params)
+    @all_users_chat = AllUsersChat.new(all_users_chat_params)
+    @all_users_chat.save
+    redirect_to all_users_chats_path, notice: '新しい全体シャットが作成されました'
+    
+    # redirect_to all_users_chat_path(@all_users_chat), notice: '新しい全体シャットが作成されました'
   end
   def show
     @comment = Comment.new

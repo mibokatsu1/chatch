@@ -6,6 +6,6 @@ Rails.application.routes.draw do
     resources :messages, only: [:index, :create]
   end
   resources :all_users_chats, only: [:index, :new, :create, :show, :destroy] do
-    resources :comments, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy, :new]
   end
 end

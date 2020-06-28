@@ -1,8 +1,6 @@
 .user
   .user__image
-    画像
-    -# = image_for(current_user)
-    -# = image_tag current_user.image
+    = current_user.image
   = link_to edit_user_path(current_user), class: "user__name" do
     = current_user.name
 %p1

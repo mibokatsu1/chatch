@@ -1,18 +1,9 @@
-.wrapper
-  .test
-    = link_to root_path do
-      トップメージへ戻る
-  .test
-    全体公開チャット
-    .test
-      = link_to "/all_users_chats/new" do
-        新しい全体チャットを投稿する
-    .test
-      - @all_users_chats.each do |all_users_chat|
-        .test
-          = all_users_chat.name
-        .test
-          = all_users_chat.user.name
-        .test
-          = link_to all_users_chat_path(all_users_chat.id), method: :get do
-            詳細
+.header
+  = render "messages/header"
+.body
+  .sideBar
+    = render "messages/side_bar"
+  .main
+    = render "all_users_chat"
+.footer
+  = render "all_users_chat_footer"
