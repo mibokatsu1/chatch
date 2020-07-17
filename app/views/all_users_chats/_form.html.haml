@@ -4,6 +4,9 @@
     = form.label :name, "全体公開チャットのタイトル", class: 'SettingGroupForm__label'
   .SettingGroupForm__rightField
     = form.text_area :name, placeholder: "text" , rows: "4"
+  .footer__form__label
+    .footer__form__icon
+    = form.file_field :image, placeholder: "Image Url"
 .SettingGroupForm__field
   .SettingGroupForm__leftField
   .SettingGroupForm__rightField

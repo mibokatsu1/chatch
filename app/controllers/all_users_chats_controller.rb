@@ -10,9 +10,11 @@ class AllUsersChatsController < ApplicationController
     # @all_users_chat = AllUsersChat.new
     # AllUsersChat.create(all_users_chat_params)
     @all_users_chat = AllUsersChat.new(all_users_chat_params)
-    @all_users_chat.save
-    redirect_to all_users_chats_path, notice: '新しい全体シャットが作成されました'
-    
+    if @all_users_chat.save
+      redirect_to all_users_chats_path, notice: '新しい全体シャットが作成されました'
+    else
+      render :new
+    end
     # redirect_to all_users_chat_path(@all_users_chat), notice: '新しい全体シャットが作成されました'
   end
   def show
@@ -24,7 +26,7 @@ class AllUsersChatsController < ApplicationController
 
   private
   def all_users_chat_params
-    params.require(:all_users_chat).permit(:name).merge(user_id: current_user.id)
+    params.require(:all_users_chat).permit(:name, :image).merge(user_id: current_user.id)
   end
 
   def set_all_users_chat

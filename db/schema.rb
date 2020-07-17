@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_25_133141) do
+ActiveRecord::Schema.define(version: 2020_07_17_085634) do
 
   create_table "all_users_chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image"
     t.index ["name"], name: "index_all_users_chats_on_name", unique: true
     t.index ["user_id"], name: "index_all_users_chats_on_user_id"
   end
