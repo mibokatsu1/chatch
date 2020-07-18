@@ -4,7 +4,6 @@
 
 img {
   max-width: 100%;
-  height: auto;
 }
 
 .hidden_boder {
@@ -141,18 +140,22 @@ p2 {
   .sideBar {
     width: 300px;
     
-    background-color: lightgreen;
+    background-color: #CCFFCC;
     padding: 10px;
     overflow: scroll;
     .user {
       margin-bottom: 20px;
       &__image {
-        height: 200px;
+        
         margin-bottom: 5px;
-        background-color: gray;
+        & img {
+          height: 200px;
+        }
       }
       &__name {
-        @extend.commonText-side;
+        font-size: 10px;
+        color: goldenrod;
+        font-weight: bold;
       }
     }
     &__group {
@@ -161,6 +164,7 @@ p2 {
       @extend.commonText-side;
       &__name {
         margin-bottom: 5px;
+        font-weight: bold;
       }
       &__box {
         display: flex;
