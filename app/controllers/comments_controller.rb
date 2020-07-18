@@ -9,6 +9,17 @@ class CommentsController < ApplicationController
     redirect_to all_users_chat_path(@all_users_chat), notice: 'メッセージが送信されました'
   end
   def destroy
+    set_all_users_chat
+    @comment = Comment.find(params[:id])
+    if @comment.user_id == current_user.id
+      if @comment.destroy
+        redirect_to all_users_chat_path(@all_users_chat), notice: 'コメントを１件削除しました'
+      else
+        render :show
+      end
+    else
+      redirect_to all_users_chat_path(@all_users_chat), notice: '発言者しか削除できません'
+    end
   end
 
   private
