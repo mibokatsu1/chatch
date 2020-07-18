@@ -236,10 +236,13 @@ p2 {
       @extend.recommendText;
       &__group {
         margin-right: 10px;
-        
+        max-width: 230px;
+        width: 230px;
+        max-height: 260px;
+        height: 260px;
         background-color: whitesmoke;
         &__img {
-          width: 200px;
+          width: 230px;
           height: 160px;
           margin-bottom: 5px;
           background-color: gray;
@@ -247,12 +250,16 @@ p2 {
         &__name {
           margin-bottom: 5px;
           margin-left: 5px;
+          overflow: hidden;
         }
         &__message {
           margin-bottom: 5px;
-          margin-left: 5px;        }
+          margin-left: 5px;
+          overflow: hidden;
+        }
         &__tag {
           margin-left: 5px;
+          overflow: hidden;
         }
       }
     }

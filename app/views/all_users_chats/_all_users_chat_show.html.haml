@@ -3,6 +3,8 @@
     全体チャット一覧へ戻る
 .auc_show__chatName.p25
   = @all_users_chat.name
+  -if current_user.id == @all_users_chat.user_id
+    = link_to "削除", all_users_chat_path, method: :delete
 .auc_show__createUserName.p15
   チャット作成者：  
   = @all_users_chat.user.name
@@ -11,7 +13,7 @@
   -@comments.each do |comment|
     .messenger__box
       .messenger__box__img
-        アバター
+        = image_tag comment.user.image.url
       .messenger__box-2
         .messenger__box-2__name.p15
           = comment.user.name

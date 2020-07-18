@@ -18,15 +18,27 @@ class AllUsersChatsController < ApplicationController
     # redirect_to all_users_chat_path(@all_users_chat), notice: '新しい全体シャットが作成されました'
   end
   def show
+    @all_users_chats = AllUsersChat.all
     @comment = Comment.new
     @comments = @all_users_chat.comments.includes(:user)
   end
   def destroy
+    
+    # AllUsersChat.find(1).user_id
+    if @all_users_chat.user_id == current_user.id
+      if @all_users_chat.destroy
+        redirect_to all_users_chats_path, notice: '全体チャットを１件削除しました'
+      else
+        render redirect_to all_users_chats_path, notice: '削除が失敗しました'
+      end
+    else
+      redirect_to all_users_chats_path, notice: '作成者しか削除できません'
+    end
   end
 
   private
   def all_users_chat_params
-    params.require(:all_users_chat).permit(:name, :image).merge(user_id: current_user.id)
+    params.require(:all_users_chat).permit(:name, :image, :user_id).merge(user_id: current_user.id)
   end
 
   def set_all_users_chat
