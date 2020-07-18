@@ -9,6 +9,7 @@
         .auc__feild__show
           = link_to all_users_chat_path(all_users_chat.id), method: :get do
             .auc__feild__chatName.p15
+              = "[#{all_users_chat.id}]"
               = all_users_chat.name
             .auc__feild__userName.p15
               投稿者名：  
