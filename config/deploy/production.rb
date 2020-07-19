@@ -50,6 +50,7 @@
 # The server-based syntax can be used to override options:
 # ------------------------------------
 # server "example.com",
+server '54.248.218.212', user: 'ec2-user', roles: %w{app db web}
 #   user: "user_name",
 #   roles: %w{web app},
 #   ssh_options: {
