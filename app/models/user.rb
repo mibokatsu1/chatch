@@ -11,4 +11,6 @@ class User < ApplicationRecord
   has_many :messages
   has_many :all_users_chats
   has_many :comments
+
+  mount_uploader :image, ImageUploader
 end

@@ -1,3 +1,12 @@
+-# .common__footer
+-#   = form_with model: all_users_chat, metthod: :post, class: "footer__form", local: true do |f|
+-#     .footer__form__box
+-#       = f.text_field :content, class: 'footer__form__text', placeholder: '新しい全体公開チャットのタイトルを入力'
+-#       = f.label :image, class: 'footer__form__label' do
+-#         = icon('far', 'image', class: 'footer__form__icon')
+-#         = f.file_field :image, class: 'Hidden footer__form__file'
+-#     = f.submit 'Send', class: 'footer__form__btn'
+
 .auc__footer
   = link_to "/all_users_chats/new", class: "p20 black" do
     新しい全体チャットを投稿する

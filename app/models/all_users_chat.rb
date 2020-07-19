@@ -4,6 +4,8 @@ class AllUsersChat < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
 
+  mount_uploader :image, ImageUploader
+  
   def show_last_comment
     if (last_comment = comments.last).present?
       if last_comment.content?
