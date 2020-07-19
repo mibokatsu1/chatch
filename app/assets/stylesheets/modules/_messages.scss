@@ -308,7 +308,7 @@ p2 {
   height: 100px;
   display: flex;
   padding: 10px 50px 10px 20px;
-  background-color: darkgray;
+  background-color: white;
   .groupfooter{
     width: 100%;
     &__box{
@@ -328,14 +328,18 @@ p2 {
       &__box {
         display: flex;
         .footer__form__text {
-          width: 900px;
+          width: 650px;
           height: 80px;
           padding: 0 50px 0 10px;
+          background-color: whitesmoke;
+          border:1px solid lightgray;
+          border-radius: 5px;
         }
         .footer__form__label {
           position: relative;
           .footer__form__icon {
             font-size: 30px;
+            color: gray;
             position: absolute;
             right: 10px;
             line-height: 80px;
@@ -349,6 +353,9 @@ p2 {
         width: 50px;
         height: 40px;
         margin-left: 10px;
+        color: gray;
+        border: 1px solid lightgray;
+        border-radius: 3px;
       }
     }
   }
