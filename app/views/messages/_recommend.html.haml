@@ -21,16 +21,17 @@
 
   .hidden_boder
   .recommend
-    - @all_users_chats.slice(5..9).each do |all_users_chat, |
+    - if @all_users_chats.length != 0 
+      - @all_users_chats.slice(5..9).each do |all_users_chat|
 
-      .recommend__group
-        = link_to all_users_chat_path(all_users_chat), class: "link-black" do
-          .recommend__group__img
-            = all_users_chat.show_last_image
-          .recommend__group__name
-            = all_users_chat.name
-          .recommend__group__message
-            = all_users_chat.show_last_comment
+        .recommend__group
+          = link_to all_users_chat_path(all_users_chat), class: "link-black" do
+            .recommend__group__img
+              = all_users_chat.show_last_image
+            .recommend__group__name
+              = all_users_chat.name
+            .recommend__group__message
+              = all_users_chat.show_last_comment
 
-        .recommend__group__tag
-          タグ
+          .recommend__group__tag
+            タグ
