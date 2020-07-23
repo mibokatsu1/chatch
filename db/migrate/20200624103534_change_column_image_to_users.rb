@@ -1,6 +1,6 @@
 class ChangeColumnImageToUsers < ActiveRecord::Migration[6.0]
   def change
-    add_column :users, :image, :string
+    change_column :users, :image, :string
   end
 
 end
