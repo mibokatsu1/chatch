@@ -10,6 +10,7 @@
       参加メンバー：
       - @group.users.each do |user|
         = user.name
+  = image_tag AllUsersChat.find(1).image.url
 
 .messenger
   = render @messages

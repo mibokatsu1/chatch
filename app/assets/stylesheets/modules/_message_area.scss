@@ -1,0 +1,8 @@
+.main__message {
+  display: flex;
+  & img {
+    max-width: 300px;
+    height: auto;
+    margin-left: 50px;
+  }
+}
