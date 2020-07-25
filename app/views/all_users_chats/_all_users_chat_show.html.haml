@@ -11,7 +11,7 @@
     .auc_show__createUserName.p15
       チャット作成者：  
       = @all_users_chat.user.name
-  = image_tag AllUsersChat.find(1).image.url
+  = image_tag @all_users_chat.image.url
 
 .auc_show__comment
   -@comments.each do |comment|
