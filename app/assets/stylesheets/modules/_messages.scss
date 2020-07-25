@@ -208,6 +208,14 @@ p2 {
           background-color: black;
         }
         &-2 {
+          & img {
+            max-width: 400px;
+            height: auto;
+            margin-left: 50px;
+            overflow: hidden;
+            z-index: auto;
+            object-fit: cover;
+          }
           &__name {
             margin-left: 10px;
             margin-bottom: 10px;
