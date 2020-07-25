@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
   end
   def create
     @comment = @all_users_chat.comments.new(comment_params)
+    logger.debug @comment.errors.inspect
     @comment.save
     redirect_to all_users_chat_path(@all_users_chat), notice: 'メッセージが送信されました'
   end
