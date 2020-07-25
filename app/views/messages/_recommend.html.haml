@@ -7,9 +7,10 @@
       .recommend__group
         = link_to all_users_chat_path(all_users_chat), class: "link-black" do
           .recommend__group__img
-            画像
-            -# = image_tag @all_users_chat.show_last_image.url, alt: "まだ画像はありません"
-            -# = image_tag all_users_chat.show_last_image.url, alt: "まだ画像はありません"
+            - if AllUsersChat.find(1).image.length != 0
+              = image_tag AllUsersChat.find(1).image.url, alt: "まだ画像はありません"
+              -# = image_tag @all_users_chat.show_last_image.url, alt: "まだ画像はありません"
+              -# = image_tag all_users_chat.show_last_image.url, alt: "まだ画像はありません"
           .recommend__group__name
             = "[#{all_users_chat.id}]"
             = all_users_chat.name

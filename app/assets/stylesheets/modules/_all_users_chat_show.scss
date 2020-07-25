@@ -2,6 +2,18 @@
   margin-bottom: 30px;
 }
 
+.auc_show__body {
+  display: flex;
+  & img {
+    max-width: 300px;
+    height: auto;
+    margin-left: 50px;
+    overflow: hidden;
+    z-index: auto;
+    object-fit: cover;
+  }
+}
+
 .auc_show__chatName {
   margin-bottom: 10px;
 }
