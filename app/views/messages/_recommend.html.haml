@@ -21,7 +21,7 @@
 
   .hidden_boder
   .recommend
-    - if @all_users_chats.length != 0 
+    - if @all_users_chats.length >= 10 
       - @all_users_chats.slice(5..9).each do |all_users_chat|
 
         .recommend__group
