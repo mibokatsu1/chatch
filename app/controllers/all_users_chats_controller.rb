@@ -39,6 +39,11 @@ class AllUsersChatsController < ApplicationController
     end
   end
 
+  def search
+    @all_users_chats = AllUsersChat.search(params[:search])
+    # binding.pry
+  end
+
   private
   def all_users_chat_params
     params.require(:all_users_chat).permit(:name, :image, :user_id).merge(user_id: current_user.id)

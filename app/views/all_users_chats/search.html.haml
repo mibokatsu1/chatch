@@ -1,0 +1,11 @@
+.searchResult__field
+  %p
+    検索結果
+  
+  .searchResult__list
+    - @all_users_chats.each do |all_users_chat|
+      .searchResult__box
+        = link_to all_users_chat_path(all_users_chat) do
+          = "[#{all_users_chat.id}]"
+          = all_users_chat.name
+        -# = render partial: "all_users_chat", locals: { all_users_chat: all_users_chat }

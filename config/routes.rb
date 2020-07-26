@@ -7,5 +7,8 @@ Rails.application.routes.draw do
   end
   resources :all_users_chats, only: [:index, :new, :create, :show, :destroy] do
     resources :comments, only: [:create, :destroy, :new]
+    collection do
+      get 'search'
+    end
   end
 end

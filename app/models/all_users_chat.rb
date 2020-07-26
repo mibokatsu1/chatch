@@ -23,4 +23,11 @@ class AllUsersChat < ApplicationRecord
     last_image = @images.last
   end
 
+  def self.search(search)
+    if search
+      AllUsersChat.where('name LIKE(?)', "%#{search}%")
+    else
+      AllUsersChat.all
+    end
+  end
 end

@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
   def index
     @all_users_chats = AllUsersChat.all.order(created_at: :DESC)
+    # @all_users_chats = AllUsersChat.search(params[:keyword])
   end
 
   def new

@@ -7,7 +7,7 @@
     = icon('far', 'comments', class: "icon icon__group")
     = link_to new_group_path, class: "link headerTopLink headerLink__chat" do
       チャット
-= form_with url: root_path, method: :get, local: true do |f|
+= form_with url: search_all_users_chats_path, method: :get, local: true do |f|
   = f.text_field :search, class: 'search', placeholder: "チャット検索"
 %h3.title
   チャットｃｈ

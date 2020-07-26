@@ -1,0 +1,9 @@
+.searchResult__field {
+  background-color: cadetblue;
+  & p {
+    color: black;
+  }
+  .searchResult__list {
+    color: black;
+  }
+}
