@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_23_135518) do
+ActiveRecord::Schema.define(version: 2020_07_26_045506) do
 
   create_table "all_users_chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -46,7 +46,9 @@ ActiveRecord::Schema.define(version: 2020_07_23_135518) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
     t.index ["name"], name: "index_groups_on_name", unique: true
+    t.index ["user_id"], name: "index_groups_on_user_id"
   end
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -80,6 +82,7 @@ ActiveRecord::Schema.define(version: 2020_07_23_135518) do
   add_foreign_key "comments", "users"
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"
+  add_foreign_key "groups", "users"
   add_foreign_key "messages", "groups"
   add_foreign_key "messages", "users"
 end

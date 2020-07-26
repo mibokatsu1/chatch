@@ -17,10 +17,23 @@ class MessagesController < ApplicationController
     end
   end
 
+  def destroy
+    @message = Message.find(params[:id])
+    if (@message.user_id == current_user.id) || (@group.user_id == current_user.id)
+      if @message.destroy
+        redirect_to group_messages_path(@group), notice: '1つのメッセージが削除しました'
+      else
+        render :index, notice: 'メッセージの削除に失敗しました'
+      end
+    else
+      render :index, notice: 'メッセージは作成者のみ削除できます'
+    end
+  end
+
   private
 
   def message_params
-    params.require(:message).permit(:content, :image).merge(user_id: current_user.id)
+    params.require(:message).permit(:content, :image).merge(user_id: current_user.id, group_id: params[:group_id])
   end
 
   def set_group

@@ -11,6 +11,6 @@
       = image_tag message.image.url, class: 'Message__image' if message.image.present?
   .messenger__box-3
     .messenger__box-3__edit
-      = link_to '削除', '#', class: "link delete text-small" 
+      = link_to '削除', group_message_path(@group, message), method: :delete, class: "link delete text-small" 
     .messenger__box-3__created_at.text-small
       = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
