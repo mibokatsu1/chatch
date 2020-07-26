@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
   def destroy
     set_all_users_chat
     @comment = Comment.find(params[:id])
-    if @comment.user_id == current_user.id
+    if (@comment.user_id == current_user.id) || (current_user.id == @all_users_chat.user_id)
       if @comment.destroy
         redirect_to all_users_chat_path(@all_users_chat), notice: 'コメントを１件削除しました'
       else

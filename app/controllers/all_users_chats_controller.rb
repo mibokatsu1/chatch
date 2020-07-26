@@ -23,7 +23,7 @@ class AllUsersChatsController < ApplicationController
     @comments = @all_users_chat.comments.includes(:user)
   end
   def destroy
-    if @all_users_chat.user_id == current_user.id
+    if (@all_users_chat.user_id == current_user.id) || (current_user.id == @comment.user_id)
       if @all_users_chat.destroy
         redirect_to all_users_chats_path, notice: '全体チャットを１件削除しました'
       else
