@@ -1,6 +1,7 @@
 class AllUsersChat < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_many :tags, through: :all_users_chats_tags
 
   validates :name, presence: true, uniqueness: true
 

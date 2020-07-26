@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_26_045506) do
+ActiveRecord::Schema.define(version: 2020_07_26_122147) do
 
   create_table "all_users_chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 2020_07_26_045506) do
     t.string "image"
     t.index ["name"], name: "index_all_users_chats_on_name", unique: true
     t.index ["user_id"], name: "index_all_users_chats_on_user_id"
+  end
+
+  create_table "all_users_chats_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "all_users_chat_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["all_users_chat_id"], name: "index_all_users_chats_tags_on_all_users_chat_id"
+    t.index ["tag_id"], name: "index_all_users_chats_tags_on_tag_id"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -62,6 +71,12 @@ ActiveRecord::Schema.define(version: 2020_07_26_045506) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "text", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
@@ -78,6 +93,8 @@ ActiveRecord::Schema.define(version: 2020_07_26_045506) do
   end
 
   add_foreign_key "all_users_chats", "users"
+  add_foreign_key "all_users_chats_tags", "all_users_chats"
+  add_foreign_key "all_users_chats_tags", "tags"
   add_foreign_key "comments", "all_users_chats"
   add_foreign_key "comments", "users"
   add_foreign_key "group_users", "groups"
