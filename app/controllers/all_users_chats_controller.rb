@@ -1,5 +1,5 @@
 class AllUsersChatsController < ApplicationController
-  before_action :set_all_users_chat, only: :show
+  before_action :set_all_users_chat, only: [:show, :destroy]
   def index
     @all_users_chats = AllUsersChat.all
   end
@@ -23,7 +23,6 @@ class AllUsersChatsController < ApplicationController
     @comments = @all_users_chat.comments.includes(:user)
   end
   def destroy
-    set_all_users_chat
     if @all_users_chat.user_id == current_user.id
       if @all_users_chat.destroy
         redirect_to all_users_chats_path, notice: '全体チャットを１件削除しました'
