@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   def index
-    @all_users_chats = AllUsersChat.all
+    @all_users_chats = AllUsersChat.all.order(created_at: :DESC)
   end
 
   def new

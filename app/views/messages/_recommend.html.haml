@@ -29,6 +29,7 @@
             .recommend__group__img
               = image_tag AllUsersChat.find(all_users_chat.id).image.url, alt: "まだ画像はありません"
             .recommend__group__name
+              = "[#{all_users_chat.id}]"
               = all_users_chat.name
             .recommend__group__message
               = all_users_chat.show_last_comment
