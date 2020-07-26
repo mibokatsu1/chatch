@@ -4,6 +4,16 @@
 
 .auc_show__body {
   display: flex;
+  .link__removeAuc {
+    text-decoration: none;
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 50px;
+  }
+  & p {
+    color: red;
+  }
   & img {
     max-width: 300px;
     height: auto;

@@ -1,11 +1,14 @@
 class AllUsersChatsController < ApplicationController
   before_action :set_all_users_chat, only: [:show, :destroy]
+
   def index
     @all_users_chats = AllUsersChat.all
   end
+
   def new
     @all_users_chat = AllUsersChat.new
   end
+
   def create
     # @all_users_chat = AllUsersChat.new
     # AllUsersChat.create(all_users_chat_params)
@@ -17,11 +20,13 @@ class AllUsersChatsController < ApplicationController
     end
     # redirect_to all_users_chat_path(@all_users_chat), notice: '新しい全体シャットが作成されました'
   end
+
   def show
     @all_users_chats = AllUsersChat.all
     @comment = Comment.new
     @comments = @all_users_chat.comments.includes(:user)
   end
+
   def destroy
     if (@all_users_chat.user_id == current_user.id) || (current_user.id == @comment.user_id)
       if @all_users_chat.destroy

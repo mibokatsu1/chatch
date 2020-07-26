@@ -11,7 +11,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      redirect_to group_messages_path(@group), notice: 'グループを作成しました'
+      redirect_to group_messages_path(@group), notice: '新しいグループを作成しました'
     else
       render :new
     end
@@ -27,6 +27,18 @@ class GroupsController < ApplicationController
       redirect_to group_messages_path(@group), notice: 'グループを更新しました'
     else
       render :edit
+    end
+  end
+
+  def destroy
+    if current_user.id == @group.user_id
+      if @group.destroy
+        redirect_to groups_path, notice: 'グループを１件削除しました'
+      else
+        render groups_path, notice: '削除が失敗しました'
+      end
+    else
+      redirect_to groups_path, notice: 'グループ作成者しか削除できません'
     end
   end
 

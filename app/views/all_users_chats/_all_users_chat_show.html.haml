@@ -6,11 +6,13 @@
     .auc_show__chatName.p25
       = "[#{@all_users_chat.id}]"
       = @all_users_chat.name
-      -if current_user.id == @all_users_chat.user_id
-        = link_to "削除", all_users_chat_path(@all_users_chat), method: :delete
     .auc_show__createUserName.p15
       チャット作成者：  
       = @all_users_chat.user.name
+    -if current_user.id == @all_users_chat.user_id
+      = link_to "削除", all_users_chat_path(@all_users_chat), method: :delete, class: "link__removeAuc"
+      %p
+        ※押すと、全てのコメントが削除されてしまいます
   = image_tag @all_users_chat.image.url
 
 .auc_show__comment
