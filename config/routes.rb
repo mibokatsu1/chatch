@@ -11,4 +11,7 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
+  resources :tags do
+    get 'all_users_chats', to: 'all_users_chats#search'
+  end
 end
