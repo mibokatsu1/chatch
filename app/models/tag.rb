@@ -1,6 +1,17 @@
 class Tag < ApplicationRecord
-  validates :text, presence: true, uniqueness: true
+  before_save :downcase_tag_name
+  
+  validates :text, presence: true
+  # validates :text, presence: true, uniqueness: { case_sensitive: true }
+  # uniqueness: { case_sensitive: true }
 
-  has_many :all_users_chats_tags, dependent: :destroy
-  has_many :all_users_chats, through: :all_users_chats_tags
+  has_many :all_users_chat_tags, dependent: :destroy
+  has_many :all_users_chats, through: :all_users_chat_tags
+
+  private
+
+  # タグ名を小文字に変換
+  def downcase_tag_name
+    self.text.downcase!
+  end
 end
