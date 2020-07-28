@@ -7,16 +7,24 @@ class AllUsersChatsController < ApplicationController
 
   def new
     @all_users_chat = AllUsersChat.new
+    @tag_list = Tag.all
+    @all_users_chats = AllUsersChat.all
   end
 
   def create
     # @all_users_chat = AllUsersChat.new
     # AllUsersChat.create(all_users_chat_params)
     @all_users_chat = AllUsersChat.new(all_users_chat_params)
+    tag_list = tag_params[:texts].split(/[[:blank:]]+/).select(&:present?)
+    # tag_list = tag_params[:text].split(nil)
+    # tag_list = params[:all_users_chat][:text].split(nil)
     if @all_users_chat.save
+      @all_users_chat.save_tags(tag_list)
+      # binding.pry
       redirect_to all_users_chats_path, notice: '新しい全体シャットが作成されました'
     else
-      render :new
+
+      render :new, notice: '同じタイトルは登録できません'
     end
     # redirect_to all_users_chat_path(@all_users_chat), notice: '新しい全体シャットが作成されました'
   end
@@ -25,6 +33,7 @@ class AllUsersChatsController < ApplicationController
     @all_users_chats = AllUsersChat.all
     @comment = Comment.new
     @comments = @all_users_chat.comments.includes(:user)
+    # @all_users_chat_tags = @all_users_chat.tags  
   end
 
   def destroy
@@ -42,6 +51,9 @@ class AllUsersChatsController < ApplicationController
   def search
     @all_users_chats = AllUsersChat.search(params[:search])
     # binding.pry
+    # @tag_list = Tag.all
+    # @tag = Tag.find(params[:tag_id])
+    # @all_users_chats = @tag.all_users_chats.all  
   end
 
   private
@@ -53,4 +65,9 @@ class AllUsersChatsController < ApplicationController
     @all_users_chat = AllUsersChat.find(params[:id])
   end
 
+  def tag_params
+    params.require(:all_users_chat).permit(:texts)
+  end
+
 end
+

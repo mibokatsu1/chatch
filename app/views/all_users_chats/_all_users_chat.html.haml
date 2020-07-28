@@ -14,3 +14,6 @@
             .auc__feild__userName.p15
               投稿者名：  
               = all_users_chat.user.name
+            -# - if all_users_chat.tags.length != 0
+            -#   - all_users_chat.tags.each do |tag|
+            -#     = "##{tag.text}"
