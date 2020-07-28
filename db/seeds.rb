@@ -15,6 +15,7 @@ all_users_chats = AllUsersChat.create!([
   user_id: 2,
   created_at: 2020-07-02,
   updated_at: 2020-07-02,
+  # image: File.open('#{Rails.root}/app/assets/images/auc_02.png'),
   image:File.open('./app/assets/images/auc_02.png'),
   },
   {
@@ -88,7 +89,7 @@ comments = Comment.create!([
   content: "美味しそうな食べ物の画像を貼ってください",
   user_id: 2,
   image: nil,
-  all_users_chat_id: 1,
+  all_users_chat_id: 10,
   created_at: 2020-07-02,
   updated_at: 2020-07-02,
   },
