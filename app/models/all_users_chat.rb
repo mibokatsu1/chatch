@@ -55,7 +55,7 @@ class AllUsersChat < ApplicationRecord
         end
       else
             # DB にタグが存在した場合、中間テーブルにブログ記事とタグを紐付けている
-        AllUsersChat.create!(all_users_chat_id: self.id, tag_id: find_tag.id)
+        AllUsersChatTag.create!(all_users_chat_id: self.id, tag_id: find_tag.id)
       end
     end
   end

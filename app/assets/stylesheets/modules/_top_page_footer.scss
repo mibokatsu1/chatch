@@ -4,4 +4,11 @@
   padding-top: 40px;
   background-color: whitesmoke;
   font-size: 20px;
+  & a {
+    font-size: 20px;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    background-color: #003366;
+  }
 }

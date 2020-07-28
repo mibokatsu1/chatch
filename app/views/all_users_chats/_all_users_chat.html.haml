@@ -1,17 +1,15 @@
 .auc__body
-  .auc__feild.p25
-    全体公開チャット一覧
-    .auc__feild__linkForm.p20
-      = link_to "/all_users_chats/new", class: "link p3 form__auc" do
-        新しい全体チャットを投稿する
-    .auc__feild
+  .auc__innere
+    .auc__title
+      全体公開チャット一覧
+    .auc__field
       - @all_users_chats.each do |all_users_chat|
-        .auc__feild__show
+        .auc__field__show
           = link_to all_users_chat_path(all_users_chat.id), method: :get do
-            .auc__feild__chatName.p15
+            .auc__field__chatName.p15
               = "[#{all_users_chat.id}]"
               = all_users_chat.name
-            .auc__feild__userName.p15
+            .auc__field__userName.p8
               投稿者名：  
               = all_users_chat.user.name
             -# - if all_users_chat.tags.length != 0
