@@ -6,10 +6,11 @@
       - @all_users_chats.each do |all_users_chat|
         .auc__field__show
           = link_to all_users_chat_path(all_users_chat.id), method: :get do
-            .auc__field__chatName.p15
+            %span
               = "[#{all_users_chat.id}]"
               = all_users_chat.name
-            .auc__field__userName.p8
+            .br
+            %span.p8
               投稿者名：  
               = all_users_chat.user.name
             -# - if all_users_chat.tags.length != 0

@@ -12,6 +12,9 @@
 }
 
 .auc__field {
+  &__show {
+    margin-bottom: 25px;
+  }
   &__linkForm {
     margin-bottom: 20px;
   }
@@ -21,6 +24,9 @@
 
   &__userName {
     margin-bottom: 35px;
+  }
+  & span {
+    color: white;
   }
 }
 
