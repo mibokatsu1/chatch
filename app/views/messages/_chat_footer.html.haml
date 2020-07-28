@@ -1,11 +1,11 @@
 .footer
-  .groupfooter
-    .groupfooter__box
-      %p.groupfooter__title
+  .groupFooter
+    .groupFooter__box
+      %p.groupFooter__title
         = @group.name
       = link_to edit_group_path(@group), class: "link__icon__config" do
         = icon('fas', 'cog', class: "icon icon__config")
-    .groupfooter__member
+    .groupFooter__member
       %p
         参加メンバー：
         - @group.users.each do |user|

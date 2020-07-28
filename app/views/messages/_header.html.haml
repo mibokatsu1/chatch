@@ -12,7 +12,8 @@
 %h3.title
   チャットｃｈ
 .userIcon
-  %ul.ul.userIcon__child
+  %ul
     %li.list
       = link_to edit_user_path(current_user), class: "link headerLink headerLink__myPage" do
-        = icon('fas', 'user-circle', class: "iconLg icon__user")
+        = image_tag current_user.image.url, alt: "まだアバター画像は設定されていません"
+        -# = icon('fas', 'user-circle', class: "iconLg icon__user")
