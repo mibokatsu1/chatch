@@ -95,10 +95,6 @@ p2 {
   padding-left: 5px;
 }
 
-.Message__content {
-  color: black;
-}
-
 .wrapper {
   width: 100vw;
   height: 100vh;
@@ -241,6 +237,9 @@ p2 {
           }  
         }
         &-2 {
+          .message__content {
+            color: black;
+          }
           & img {
             max-width: 400px;
             max-height: 400px;

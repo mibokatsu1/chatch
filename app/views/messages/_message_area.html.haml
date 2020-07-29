@@ -28,7 +28,7 @@
           = message.user.name
         .messenger__box-2__message
           - if message.content.present?
-            %p.Message__content
+            %p.message__content
               = message.content
           = image_tag message.image.url, class: 'Message__image' if message.image.present?
       .messenger__box-3
