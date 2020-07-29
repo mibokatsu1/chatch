@@ -43,9 +43,8 @@ class AllUsersChat < ApplicationRecord
           # create メソッドでタグの作成
           # create! としているのは、保存が成功しても失敗してもオブジェクト
           # を返してしまうため、例外を発生させたい
-          # self.tags.create!(text: tag)
-          # binding.pry
           self.tags.create!(text: tag)
+          # @all_users_chat.tags.create!(text: tag)
 
         # 例外が発生すると rescue 内の処理が走り nil となるので
         # 値は保存されないで次の処理に進む

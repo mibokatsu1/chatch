@@ -36,10 +36,10 @@ class GroupsController < ApplicationController
       if @group.destroy
         redirect_to groups_path, notice: 'グループを１件削除しました'
       else
-        render groups_path, notice: '削除が失敗しました'
+        render groups_path, alert: 'グループの削除に失敗しました'
       end
     else
-      redirect_to groups_path, notice: 'グループ作成者しか削除できません'
+      redirect_to groups_path, alert: 'グループ作成者しか削除できません'
     end
   end
 

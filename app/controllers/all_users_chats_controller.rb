@@ -19,12 +19,13 @@ class AllUsersChatsController < ApplicationController
     # tag_list = tag_params[:text].split(nil)
     # tag_list = params[:all_users_chat][:text].split(nil)
     if @all_users_chat.save
+      binding.pry
       @all_users_chat.save_tags(tag_list)
-      # binding.pry
+      
       redirect_to all_users_chats_path, notice: '新しい全体シャットが作成されました'
     else
 
-      render :new, notice: '同じタイトルは登録できません'
+      render :new, alert: '同じタイトルは登録できません'
     end
     # redirect_to all_users_chat_path(@all_users_chat), notice: '新しい全体シャットが作成されました'
   end
@@ -41,10 +42,10 @@ class AllUsersChatsController < ApplicationController
       if @all_users_chat.destroy
         redirect_to all_users_chats_path, notice: '全体チャットを１件削除しました'
       else
-        render redirect_to all_users_chats_path, notice: '削除が失敗しました'
+        render redirect_to all_users_chats_path, alert: '削除が失敗しました'
       end
     else
-      redirect_to all_users_chats_path, notice: '作成者しか削除できません'
+      redirect_to all_users_chats_path, alert: '作成者しか削除できません'
     end
   end
 

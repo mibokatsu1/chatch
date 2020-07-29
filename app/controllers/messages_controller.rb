@@ -23,10 +23,10 @@ class MessagesController < ApplicationController
       if @message.destroy
         redirect_to group_messages_path(@group), notice: '1つのメッセージが削除しました'
       else
-        render :index, notice: 'メッセージの削除に失敗しました'
+        render :index, alert: 'メッセージの削除に失敗しました'
       end
     else
-      render :index, notice: 'メッセージは作成者のみ削除できます'
+      render :index, notice: '作成者はメッセージを削除することは出来ません'
     end
   end
 

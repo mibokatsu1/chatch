@@ -1,0 +1,53 @@
+class AllUsersChatsController < ApplicationController
+  before_action :set_all_users_chat, only: [:show, :destroy]
+
+  def index
+    @all_users_chats = AllUsersChat.all
+  end
+
+  def new
+    @all_users_chat = AllUsersChat.new
+    @tag_list = Tag.all
+    @all_users_chats = AllUsersChat.all
+  end
+
+  def create
+    @all_users_chat = AllUsersChat.new(all_users_chat_params)
+    tag_list = tag_params[:texts].split(/[[:blank:]]+/).select(&:present?)
+    if @all_users_chat.save
+      @all_users_chat.save_tags(tag_list)
+      
+      redirect_to all_users_chats_path, notice: '新しい全体公開チャットが作成されました'
+    else
+
+      render :new, notice: '同じタイトルは登録できません'
+    end
+    redirect_to all_users_chat_path(@all_users_chat), notice: '新しい全体シャットが作成されました'
+  end
+
+  def destroy
+    if (@all_users_chat.user_id == current_user.id) || (current_user.id == @comment.user_id)
+      if @all_users_chat.destroy
+        redirect_to all_users_chats_path, notice: '全体公開チャットを１件削除しました'
+      else
+        render redirect_to all_users_chats_path, notice: '削除が失敗しました'
+      end
+    else
+      redirect_to all_users_chats_path, notice: '作成者しか削除できません'
+    end
+  end
+
+  private
+  def all_users_chat_params
+    params.require(:all_users_chat).permit(:name, :image, :user_id).merge(user_id: current_user.id)
+  end
+
+  def set_all_users_chat
+    @all_users_chat = AllUsersChat.find(params[:id])
+  end
+
+  def tag_params
+    params.require(:all_users_chat).permit(:texts)
+  end
+
+end

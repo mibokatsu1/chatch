@@ -6,20 +6,24 @@ class CommentsController < ApplicationController
   def create
     @comment = @all_users_chat.comments.new(comment_params)
     # logger.debug @comment.errors.inspect
-    @comment.save
-    redirect_to all_users_chat_path(@all_users_chat), notice: 'メッセージが送信されました'
+    if @comment.save
+      redirect_to all_users_chat_path(@all_users_chat), notice: 'メッセージが送信されました'
+    else
+      # render action: :show, alert: 'メッセージの送信に失敗しました'
+      redirect_to all_users_chat_path(@all_users_chat), alert: 'メッセージの送信に失敗しました'
+    end
   end
   def destroy
     set_all_users_chat
     @comment = Comment.find(params[:id])
     if (@comment.user_id == current_user.id) || (current_user.id == @all_users_chat.user_id)
       if @comment.destroy
-        redirect_to all_users_chat_path(@all_users_chat), notice: 'コメントを１件削除しました'
+        redirect_to all_users_chat_path(@all_users_chat), notice: 'メッセージを１件削除しました'
       else
-        render :show
+        render action: :show, alert: 'メッセージの削除に失敗しました'
       end
     else
-      redirect_to all_users_chat_path(@all_users_chat), notice: '発言者しか削除できません'
+      redirect_to all_users_chat_path(@all_users_chat), alert: '発言者しかメッセージを削除できません'
     end
   end
 
