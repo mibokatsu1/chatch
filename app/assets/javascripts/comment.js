@@ -67,8 +67,10 @@ $(function(){
     .done(function(data){
       console.log(data);
       let html = buildHTML(data);
-      $('.auc_show__comment').append(html);      
+      $('.auc_show__comment').append(html); 
       $('form')[0].reset();
+      // $('.auc_show__comment').animate({ scrollTop: $('.auc_show__comment')[0].scrollHeight});
+      $('.main').animate({ scrollTop: $('.main')[0].scrollHeight});
     })
   });
 });
