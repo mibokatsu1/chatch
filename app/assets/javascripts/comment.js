@@ -2,6 +2,7 @@ $(function(){
   console.log("test");
   function buildHTML(comment){
     if ( comment.image ) {
+      // console.log("画像あり");
       let html =
         `<div class="messenger__box">
           <div class="messenger__box__img">
@@ -26,6 +27,7 @@ $(function(){
         </div>`
       return html;
     } else {
+      // console.log("画像なし");
       let html =
         `<div class="messenger__box">
         <div class="messenger__box__img"></div>
@@ -53,7 +55,7 @@ $(function(){
     e.preventDefault();
     let formData = new FormData(this);
     let url = $(this).attr('action');
-    console.log(this);
+    // console.log(this);
     $.ajax({
       url: url,
       type: 'POST',
@@ -61,16 +63,18 @@ $(function(){
       dataType: 'json',
       processData: false,
       contentType: false
-    // $(".footer__form__text").remove();
-    
     })
     .done(function(data){
-      console.log(data);
+      // console.log(data);
       let html = buildHTML(data);
       $('.auc_show__comment').append(html); 
-      $('form')[0].reset();
-      // $('.auc_show__comment').animate({ scrollTop: $('.auc_show__comment')[0].scrollHeight});
+      $('.footer__form')[0].reset();
       $('.main').animate({ scrollTop: $('.main')[0].scrollHeight});
+      $('.footer__form__btn').prop('disabled', false);
     })
+    .fail(function() {
+      alert("メッセージ送信に失敗しました");
+      $('.footer__form__btn').prop("disabled", false);
+    });
   });
 });
