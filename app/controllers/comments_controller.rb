@@ -12,6 +12,7 @@ class CommentsController < ApplicationController
         format.html {redirect_to all_users_chat_path(@all_users_chat), notice: 'メッセージが送信されました'}
         format.json
       end
+      # redirect_to all_users_chat_path(@all_users_chat), notice: 'メッセージが送信されました'
     else
       # render action: :show, alert: 'メッセージの送信に失敗しました'
       redirect_to all_users_chat_path(@all_users_chat), alert: 'メッセージの送信に失敗しました'

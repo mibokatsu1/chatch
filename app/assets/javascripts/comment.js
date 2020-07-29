@@ -1,26 +1,26 @@
 $(function(){
-  console.log("test");
+  // console.log("test");
   function buildHTML(comment){
     if ( comment.image ) {
       // console.log("画像あり");
       let html =
-        `<div class="messenger__box">
-          <div class="messenger__box__img">
+        `<div class="commenter__box">
+          <div class="commenter__box__img">
             <img src="${comment.user_image}"></img>
           </div>
-          <div class="messenger__box-2">
-            <div class="messenger__box-2__name p15">
+          <div class="commenter__box-2">
+            <div class="commenter__box-2__name p15">
               ${comment.user_name}
             </div>
-            <div class="messenger__box-2__message">
-              <div class="Message__content p15">
+            <div class="commenter__box-2__comment">
+              <div class="comment__content p15">
                 ${comment.content}
               </div>
-              <img class="Message__image" src="${comment.image}"></img>
+              <img class="comment__image" src="${comment.image}"></img>
             </div>
           </div>
-          <div class="messenger__box-3">
-            <div class="messenger__box-3__created_at p8">
+          <div class="commenter__box-3">
+            <div class="commenter__box-3__created_at p8">
             ${comment.created_at}
             </div>
           </div>
@@ -29,21 +29,21 @@ $(function(){
     } else {
       // console.log("画像なし");
       let html =
-        `<div class="messenger__box">
-        <div class="messenger__box__img"></div>
-        <div class="messenger__box-2">
-          <div class="messenger__box-2__name p15">
+        `<div class="commenter__box">
+        <div class="commenter__box__img"></div>
+        <div class="commenter__box-2">
+          <div class="commenter__box-2__name p15">
             ${comment.user_name}
           </div>
-          <div class="messenger__box-2__message">
-            <div class="Message__content p15">
+          <div class="commenter__box-2__comment">
+            <div class="comment__content p15">
               ${comment.content}
             </div>
-            <img class="Message__image" src="${comment.image}"></img>
+            <img class="comment__image" src="${comment.image}"></img>
           </div>
         </div>
-        <div class="messenger__box-3">
-          <div class="messenger__box-3__created_at p8">
+        <div class="commenter__box-3">
+          <div class="commenter__box-3__created_at p8">
           ${comment.created_at}
           </div>
         </div>
@@ -51,7 +51,7 @@ $(function(){
     return html;
     };
   }
-  $(".footer__form").on('submit', function(e){
+  $(".comment__footer__form").on('submit', function(e){
     e.preventDefault();
     let formData = new FormData(this);
     let url = $(this).attr('action');
@@ -68,13 +68,13 @@ $(function(){
       // console.log(data);
       let html = buildHTML(data);
       $('.auc_show__comment').append(html); 
-      $('.footer__form')[0].reset();
+      $('.comment__footer__form')[0].reset();
       $('.main').animate({ scrollTop: $('.main')[0].scrollHeight});
-      $('.footer__form__btn').prop('disabled', false);
+      $('.comment__footer__form__btn').prop('disabled', false);
     })
     .fail(function() {
       alert("メッセージ送信に失敗しました");
-      $('.footer__form__btn').prop("disabled", false);
+      $('.comment__footer__form__btn').prop("disabled", false);
     });
   });
 });

@@ -17,20 +17,20 @@
 
 .auc_show__comment
   -@comments.each do |comment|
-    .messenger__box
-      .messenger__box__img
+    .commenter__box
+      .commenter__box__img
         = image_tag comment.user.image.url
-      .messenger__box-2
-        .messenger__box-2__name.p15
+      .commenter__box-2
+        .commenter__box-2__name.p15
           = comment.user.name
-        .messenger__box-2__message
+        .commenter__box-2__comment
           - if comment.content.present?
-            .Message__content.p15
+            .comment__content.p15
               = comment.content
-          = image_tag comment.image.url, class: 'Message__image' if comment.image.present?
-      .messenger__box-3
-        .messenger__box-3__edit
+          = image_tag comment.image.url, class: 'comment__image' if comment.image.present?
+      .commenter__box-3
+        .commenter__box-3__edit
           - if (current_user.id == @all_users_chat.user_id) || (current_user.id == comment.user.id)
             = link_to '削除', all_users_chat_comment_path(@all_users_chat, comment), method: :delete, class: "link delete text-small" 
-        .messenger__box-3__created_at.p8
+        .commenter__box-3__created_at.p8
           = comment.created_at.strftime("%Y年%m月%d日 %H時%M分")

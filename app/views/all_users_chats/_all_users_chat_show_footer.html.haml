@@ -1,13 +1,13 @@
 .box300
 
-.common__footer
-  = form_with(model: [@all_users_chat, @comment], html: {class: "footer__form"}, local: true) do |form|
-    .footer__form__box
-      = form.text_area :content, class: 'footer__form__text', placeholder: "コメントする", rows: "6"
-      = form.label :image, class: 'footer__form__label' do
-        = icon('far', 'image', class: 'footer__form__icon')
-        = form.file_field :image, class: 'Hidden footer__form__file'
-    = form.submit "SEND", class: 'footer__form__btn'
+.comment__footer
+  = form_with(model: [@all_users_chat, @comment], html: {class: "comment__footer__form"}, local: true) do |form|
+    .comment__footer__form__box
+      = form.text_area :content, class: 'comment__footer__form__text', placeholder: "コメントする", rows: "6"
+      = form.label :image, class: 'comment__footer__form__label' do
+        = icon('far', 'image', class: 'comment__footer__form__icon')
+        = form.file_field :image, class: 'Hidden comment__footer__form__file'
+    = form.submit "SEND", class: 'comment__footer__form__btn'
     -# = form_with(model: [@all_users_chat, @comment], local: true) do |form|
     -#   .footer__form__box
     -#     = form.text_area :content, placeholder: "コメントする", rows: "6"
@@ -15,3 +15,7 @@
     -#       .footer__form__icon
     -#       = form.file_field :image, placeholder: "Image Url"
     -#   = form.submit "SEND"
+
+
+    -# .common__footer -> comment__footer
+    -# .footer__form -> comment__footer__form

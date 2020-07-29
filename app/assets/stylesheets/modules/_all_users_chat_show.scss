@@ -31,3 +31,52 @@
 .auc_show__createUserName {
   margin-bottom: 30px;
 }
+
+.commenter {
+  @extend.commonText-main--lg;
+  margin-bottom: 70px;
+  &__box {
+    display: flex;
+    margin-bottom: 40px;
+    &__img {
+      & img {
+        // background-color: black;
+        height: 70px;
+        width: 70px;
+        // overflow: hidden;
+        // z-index: auto;
+        object-fit: cover;
+        border-radius: 30%;
+      }  
+    }
+    &-2 {
+      & img {
+        max-width: 400px;
+        max-height: 400px;
+        margin-left: 50px;
+        overflow: hidden;
+        z-index: auto;
+        object-fit: cover;
+      }
+      &__name {
+        margin-left: 10px;
+        margin-bottom: 10px;
+      }
+      &__message {
+        // padding: 6px;
+        margin-left: 20px;
+        margin-right: 10px;
+        // background-color:whitesmoke;
+      }
+    }
+    &-3 {
+      align-self: flex-end;
+      &__created_at {
+        margin-right: 100px;
+      }  
+    }
+  }
+}
+
+// messenger -> commenter
+// Message -> Comment

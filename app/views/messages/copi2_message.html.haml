@@ -1,0 +1,18 @@
+-@messages.each do |message|
+  .messenger__box
+    .messenger__box__img
+      = image_tag message.user.image.url, class: "userAvator__child"
+    .messenger__box-2
+      .messenger__box-2__name
+        = message.user.name
+      .messenger__box-2__message
+        - if message.content.present?
+          %p.Message__content
+            = message.content
+        = image_tag message.image.url, class: 'Message__image' if message.image.present?
+    .messenger__box-3
+      .messenger__box-3__edit
+        - if (current_user.id == message.user_id) || (current_user.id == @group.user_id)
+          = link_to '削除', group_message_path(@group, message), method: :delete, class: "link delete text-small" 
+      .messenger__box-3__created_at.text-small
+        = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
