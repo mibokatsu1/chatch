@@ -77,4 +77,11 @@ $(function(){
       $('.footer__form__btn').prop("disabled", false);
     });
   });
+
+  // 最新コメントへ移動
+  $(".message__moveNew").on('click', function(e){
+    e.preventDefault();
+    // console.log(this);
+      $('.main').animate({ scrollTop: $('.main')[0].scrollHeight});
+    });
 });

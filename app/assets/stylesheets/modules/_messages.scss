@@ -182,9 +182,9 @@ p2 {
           margin-right: 5px;
         }
       }
-      &__message {
+      // &__message {
 
-      }
+      // }
     }
 
   }
@@ -214,6 +214,13 @@ p2 {
           margin-left: 10px;
           color: red;
         }
+      }
+      .message__moveNew {
+        width: auto;
+        color: white;
+        font-size: 15px;
+        margin-top: 30px;
+        cursor: pointer;
       }
     }
     .messenger {

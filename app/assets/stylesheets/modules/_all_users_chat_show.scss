@@ -1,5 +1,14 @@
 .auc_show__returnAuc {
   margin-bottom: 30px;
+  display: flex;
+}
+
+.auc_show__moveNew {
+  width: auto;
+  color: white;
+  font-size: 15px;
+  margin-left: 100px;
+  cursor: pointer;
 }
 
 .auc_show__body {
