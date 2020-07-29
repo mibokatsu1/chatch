@@ -6,8 +6,12 @@ class CommentsController < ApplicationController
   def create
     @comment = @all_users_chat.comments.new(comment_params)
     # logger.debug @comment.errors.inspect
+    
     if @comment.save
-      redirect_to all_users_chat_path(@all_users_chat), notice: 'メッセージが送信されました'
+      respond_to do |format|
+        format.html {redirect_to all_users_chat_path(@all_users_chat), notice: 'メッセージが送信されました'}
+        format.json
+      end
     else
       # render action: :show, alert: 'メッセージの送信に失敗しました'
       redirect_to all_users_chat_path(@all_users_chat), alert: 'メッセージの送信に失敗しました'
