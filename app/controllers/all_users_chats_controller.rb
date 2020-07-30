@@ -7,7 +7,7 @@ class AllUsersChatsController < ApplicationController
 
   def new
     @all_users_chat = AllUsersChat.new
-    @tag_list = Tag.all
+    # @tag_list = Tag.all
     @all_users_chats = AllUsersChat.all
   end
 
@@ -15,11 +15,13 @@ class AllUsersChatsController < ApplicationController
     # @all_users_chat = AllUsersChat.new
     # AllUsersChat.create(all_users_chat_params)
     @all_users_chat = AllUsersChat.new(all_users_chat_params)
-    tag_list = tag_params[:texts].split(/[[:blank:]]+/).select(&:present?)
+    # tag_list = tag_params[:texts].split(/[[:blank:]]+/).select(&:present?)
     # tag_list = tag_params[:text].split(nil)
     # tag_list = params[:all_users_chat][:text].split(nil)
     if @all_users_chat.save
       # binding.pry
+      @all_users_chat.tag_list.add() 
+      
       # @all_users_chat.save_tags(tag_list)
       
       redirect_to all_users_chat_path(@all_users_chat),  notice: '新しい全体公開チャットが作成されました'
@@ -82,8 +84,8 @@ class AllUsersChatsController < ApplicationController
     @all_users_chat = AllUsersChat.find(params[:id])
   end
 
-  def tag_params
-    params.require(:all_users_chat).permit(:texts)
-  end
+  # def tag_params
+  #   params.require(:all_users_chat).permit(:texts)
+  # end
 
 end

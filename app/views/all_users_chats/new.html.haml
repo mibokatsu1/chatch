@@ -13,9 +13,9 @@
             .footer__form__icon
             = form.file_field :image, placeholder: "Image Url"
           .SettingGroupForm__leftField
-            = form.label :texts, "タグ", class: 'SettingGroupForm__label'
+            = form.label :all_users_chat, :tag_list, class: 'SettingGroupForm__label'
           .SettingGroupForm__rightField
-            = form.text_area :texts, placeholder: "スペースを入力することで複数のタグを付けることができます" , rows: "3"
+            = form.text_area :tag_list, value: @all_users_chat.tag_list.join(','), placeholder: "カンマを入力することで複数のタグを付けられます" , rows: "3"
         .SettingGroupForm__field
           .SettingGroupForm__leftField
           .SettingGroupForm__rightField
