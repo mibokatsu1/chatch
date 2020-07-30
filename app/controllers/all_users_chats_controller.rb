@@ -20,7 +20,7 @@ class AllUsersChatsController < ApplicationController
     # tag_list = params[:all_users_chat][:text].split(nil)
     if @all_users_chat.save
       # binding.pry
-      @all_users_chat.tag_list.add() 
+      @all_users_chat.tag_list.add()
       
       # @all_users_chat.save_tags(tag_list)
       
@@ -67,6 +67,7 @@ class AllUsersChatsController < ApplicationController
   def update
     @all_users_chat = AllUsersChat.find(params[:id])
     if @all_users_chat.update(all_users_chat_params)
+      @all_users_chat.tag_list.add()
       redirect_to all_users_chat_path(@all_users_chat), notice: '全体公開チャットを変更しました'
     else
       render :edit, alert: '変更に失敗しました'
