@@ -1,22 +1,20 @@
 .contents.row
-  .container
+  .container.center.marginTop50
     %h3 全体公開チャット編集画面
     = form_with(model: @all_users_chat, local: true) do |form|
-      .SettingGroupForm
+      .SettingGroupForm.center
         %h1 投稿する
-        .SettingGroupForm__field
+        .SettingGroupForm__field.block
           .SettingGroupForm__leftField
-            = form.label :name, "全体公開チャットのタイトル", class: 'SettingGroupForm__label'
+            = form.label :name, "全体公開チャットのタイトル", class: 'SettingGroupForm__label center'
           .SettingGroupForm__rightField
-            = form.text_area :name, placeholder: "text" , rows: "4"
+            = form.text_area :name, placeholder: "タイトルを入力してください" , rows: "4", class: "w100"
           .footer__form__label
             .footer__form__icon
-            = form.file_field :image, placeholder: "Image Url"
+            = form.file_field :image, placeholder: "Image Url", class: "margin30"
           .SettingGroupForm__leftField
-            = form.label :all_users_chat, :tag_list, class: 'SettingGroupForm__label'
+            = form.label :all_users_chat, "タグリスト", class: 'SettingGroupForm__label center'
           .SettingGroupForm__rightField
-            = form.text_area :tag_list, value: @all_users_chat.tag_list.join(','), placeholder: "カンマを入力することで複数のタグを付けられます" , rows: "3"
-        .SettingGroupForm__field
-          .SettingGroupForm__leftField
-          .SettingGroupForm__rightField
-            = form.submit class: 'SettingGroupForm__button'
+            = form.text_area :tag_list, value: @all_users_chat.tag_list.join(','), placeholder: "カンマを入力することで複数のタグを付けられます" , rows: "3", class: "w100"
+        .SettingGroupForm__field.jCenter
+          = form.submit class: 'SettingGroupForm__button'

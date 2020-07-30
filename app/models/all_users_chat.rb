@@ -35,5 +35,13 @@ class AllUsersChat < ApplicationRecord
       AllUsersChat.all
     end
   end
-  
+
+  # def self.search(search)
+  #   if search
+  #     AllUsersChat.where('tag_list LIKE(?)', "%#{search}%")
+  #   else
+  #     AllUsersChat.all
+  #   end
+  # end
+
 end

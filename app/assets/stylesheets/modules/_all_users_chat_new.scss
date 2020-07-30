@@ -1,0 +1,27 @@
+.marginTop50 {
+  margin-top: 50px;
+  color: gray;
+  & h3 {
+    font-weight: bold;
+  }
+}
+
+.center {
+  text-align: -webkit-center;
+}
+
+.block {
+  display: block;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.margin30 {
+  margin: 30px;
+}
+
+.jCenter {
+  justify-content: center;
+}

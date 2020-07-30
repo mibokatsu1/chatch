@@ -53,8 +53,11 @@ class AllUsersChatsController < ApplicationController
   end
 
   def search
-    @all_users_chats = AllUsersChat.search(params[:search])
     # binding.pry
+    @all_users_chats = AllUsersChat.search(params[:search])
+    # @all_users_chats = AllUsersChat.where('tag_list LIKE(?)', "%#{search}%")
+    # @all_users_chats = AllUsersChat.find_tagged_with(params[:search])
+    
     # @tag_list = Tag.all
     # @tag = Tag.find(params[:tag_id])
     # @all_users_chats = @tag.all_users_chats.all  
