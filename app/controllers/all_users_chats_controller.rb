@@ -86,4 +86,3 @@ class AllUsersChatsController < ApplicationController
   end
 
 end
-
