@@ -1,0 +1,22 @@
+.contents.row
+  .container
+    %h3 全体公開チャット編集画面
+    = form_with(model: @all_users_chat, local: true) do |form|
+      .SettingGroupForm
+        %h1 投稿する
+        .SettingGroupForm__field
+          .SettingGroupForm__leftField
+            = form.label :name, "全体公開チャットのタイトル", class: 'SettingGroupForm__label'
+          .SettingGroupForm__rightField
+            = form.text_area :name, placeholder: "text" , rows: "4"
+          .footer__form__label
+            .footer__form__icon
+            = form.file_field :image, placeholder: "Image Url"
+          .SettingGroupForm__leftField
+            = form.label :texts, "タグ", class: 'SettingGroupForm__label'
+          .SettingGroupForm__rightField
+            = form.text_area :texts, placeholder: "スペースを入力することで複数のタグを付けることができます" , rows: "3"
+        .SettingGroupForm__field
+          .SettingGroupForm__leftField
+          .SettingGroupForm__rightField
+            = form.submit class: 'SettingGroupForm__button'

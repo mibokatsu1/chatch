@@ -13,6 +13,16 @@
 
 .auc_show__body {
   display: flex;
+  .link__editAuc {
+    text-decoration: none;
+    color: yellow;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 50px;
+  }
+  .p1 {
+    color: yellow;
+  }
   .link__removeAuc {
     text-decoration: none;
     color: red;
@@ -20,7 +30,7 @@
     font-weight: bold;
     margin-left: 50px;
   }
-  & p {
+  .p2 {
     color: red;
   }
   & img {

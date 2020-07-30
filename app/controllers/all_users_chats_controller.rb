@@ -41,7 +41,7 @@ class AllUsersChatsController < ApplicationController
   def destroy
     if @all_users_chat.user_id == current_user.id
       if @all_users_chat.destroy
-        redirect_to all_users_chats_path, notice: '全体チャットを１件削除しました'
+        redirect_to all_users_chats_path, notice: '全体公開チャットを１件削除しました'
       else
         render all_users_chats_path, alert: '削除が失敗しました'
       end
@@ -57,6 +57,20 @@ class AllUsersChatsController < ApplicationController
     # @tag = Tag.find(params[:tag_id])
     # @all_users_chats = @tag.all_users_chats.all  
   end
+
+  def edit
+    @all_users_chat = AllUsersChat.find(params[:id])
+  end
+
+  def update
+    @all_users_chat = AllUsersChat.find(params[:id])
+    if @all_users_chat.update(all_users_chat_params)
+      redirect_to all_users_chat_path(@all_users_chat), notice: '全体公開チャットを変更しました'
+    else
+      render :edit, alert: '変更に失敗しました'
+    end
+  end
+
 
   private
   def all_users_chat_params

@@ -12,8 +12,13 @@
       チャット作成者：  
       = @all_users_chat.user.name
     -if current_user.id == @all_users_chat.user_id
-      = link_to "削除", all_users_chat_path(@all_users_chat), method: :delete, class: "link__removeAuc"
-      %p
+      .editAuc
+        = link_to "編集", edit_all_users_chat_path(@all_users_chat), method: :get, class: "link__editAuc"
+      .p1
+        作成者のみ「タイトル」や「画像」を変更できます
+      .removeAuc
+        = link_to "削除", all_users_chat_path(@all_users_chat), method: :delete, class: "link__removeAuc"
+      .p2
         ※押すと、全てのコメントが削除されてしまいます
   = image_tag @all_users_chat.image.url
 
