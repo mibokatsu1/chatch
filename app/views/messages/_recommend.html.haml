@@ -17,7 +17,8 @@
             = all_users_chat.show_last_comment
 
         .recommend__group__tag
-          タグ
+          %span
+            = all_users_chat.tag_list
 
   .hidden_border
   .recommend
@@ -35,4 +36,5 @@
               = all_users_chat.show_last_comment
 
           .recommend__group__tag
-            タグ
+            %span
+              = all_users_chat.tag_list

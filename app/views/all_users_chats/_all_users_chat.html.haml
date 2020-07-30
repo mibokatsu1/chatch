@@ -9,10 +9,14 @@
             %span
               = "[#{all_users_chat.id}]"
               = all_users_chat.name
-            .br
-            %span.p8
-              投稿者名：  
-              = all_users_chat.user.name
+          %span.auc__tagList
+            = all_users_chat.tag_list
+          .br
+          %span.p8
+            投稿者名：  
+            = all_users_chat.user.name
+
+
             -# - if all_users_chat.tags.length != 0
             -#   - all_users_chat.tags.each do |tag|
             -#     = "##{tag.text}"
