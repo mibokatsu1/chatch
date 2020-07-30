@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
     end
   end
   def destroy
-    set_all_users_chat
+    # set_all_users_chat
     @comment = Comment.find(params[:id])
     if (@comment.user_id == current_user.id) || (current_user.id == @all_users_chat.user_id)
       if @comment.destroy

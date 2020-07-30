@@ -1,3 +1,10 @@
 .wrapper
-  = render "chat_page"
+  .header
+    = render "messages/header"
+  .body
+    .sideBar
+      = render "messages/side_bar"
+    .main
+      = render "message_area"
+  -# = render "chat_page"
   = render "chat_footer"

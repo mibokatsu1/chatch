@@ -23,6 +23,13 @@ class MessagesController < ApplicationController
 
   def destroy
     @message = Message.find(params[:id])
+    # if @group.user_id == current_user.id
+    #   if @group.destroy
+    #     redirect_to root_path, notice: 'グループを１件削除しました'
+    #   else
+    #     redirect_to group_messages_path(@group), alert: 'グループの削除に失敗しました'
+    #   end
+    # end
     if (@message.user_id == current_user.id) || (@group.user_id == current_user.id)
       if @message.destroy
         redirect_to group_messages_path(@group), notice: '1つのメッセージが削除しました'

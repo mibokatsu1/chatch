@@ -13,10 +13,10 @@ $(function(){
               ${message.user_name}
             </div>
             <div class="messenger__box-2__message">
-              <div class="Message__content p15">
+              <div class="message__content p15">
                 ${message.content}
               </div>
-              <img class="Message__image" src="${message.image}"></img>
+              <img class="message__image" src="${message.image}"></img>
             </div>
           </div>
           <div class="messenger__box-3">
@@ -36,10 +36,10 @@ $(function(){
             ${message.user_name}
           </div>
           <div class="messenger__box-2__message">
-            <div class="Message__content p15">
+            <div class="message__content p15">
               ${message.content}
             </div>
-            <img class="Message__image" src="${message.image}"></img>
+            <img class="message__image" src="${message.image}"></img>
           </div>
         </div>
         <div class="messenger__box-3">
@@ -52,6 +52,7 @@ $(function(){
     };
   }
   $(".footer__form").on('submit', function(e){
+  // $(document).on('submit', ".footer__form", function(e){
     e.preventDefault();
     let formData = new FormData(this);
     let url = $(this).attr('action');

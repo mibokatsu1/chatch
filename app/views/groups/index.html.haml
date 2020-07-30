@@ -1,4 +1,11 @@
 .wrapper
   -# = render 'messages/side_bar'
-  = render 'messages/top_page'
+  -# = render 'messages/top_page'
+  .header
+    = render "messages/header"
+  .body
+    .sideBar
+      = render "messages/side_bar"
+    .main
+      = render "messages/recommend"
   = render "messages/top_page_footer"

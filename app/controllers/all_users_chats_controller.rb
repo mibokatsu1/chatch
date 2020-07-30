@@ -39,14 +39,14 @@ class AllUsersChatsController < ApplicationController
   end
 
   def destroy
-    if (@all_users_chat.user_id == current_user.id) || (current_user.id == @comment.user_id)
+    if @all_users_chat.user_id == current_user.id
       if @all_users_chat.destroy
         redirect_to all_users_chats_path, notice: '全体チャットを１件削除しました'
       else
-        render redirect_to all_users_chats_path, alert: '削除が失敗しました'
+        render all_users_chats_path, alert: '削除が失敗しました'
       end
     else
-      redirect_to all_users_chats_path, alert: '作成者しか削除できません'
+      render all_users_chats_path, alert: '作成者しか削除できません'
     end
   end
 
