@@ -20,7 +20,7 @@ class AllUsersChatsController < ApplicationController
     # tag_list = params[:all_users_chat][:text].split(nil)
     if @all_users_chat.save
       # binding.pry
-      @all_users_chat.save_tags(tag_list)
+      # @all_users_chat.save_tags(tag_list)
       
       redirect_to all_users_chat_path(@all_users_chat),  notice: '新しい全体公開チャットが作成されました'
       # redirect_to all_users_chats_path, notice: '新しい全体公開チャットが作成されました'
