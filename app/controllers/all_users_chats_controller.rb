@@ -74,7 +74,8 @@ class AllUsersChatsController < ApplicationController
 
   private
   def all_users_chat_params
-    params.require(:all_users_chat).permit(:name, :image, :user_id).merge(user_id: current_user.id)
+    params.require(:all_users_chat).permit(:name, :image, :user_id, :tag_list).merge(user_id: current_user.id)
+    # params.require(:user).permit(:name, :tag_list)
   end
 
   def set_all_users_chat

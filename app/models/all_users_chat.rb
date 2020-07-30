@@ -7,6 +7,9 @@ class AllUsersChat < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
   mount_uploader :image, ImageUploader
+
+  acts_as_taggable
+  acts_as_taggable_on :skills, :interests
   
   def show_last_comment
     if (last_comment = comments.last).present?
