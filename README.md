@@ -27,7 +27,9 @@ Pass　guest000
 利用しているアプリの機能はどのように実装されているのかという視点で、学習したことの応用として実装しました。
 
 ## DEMO
-
+![demo1](app/assets/images/promo1.png)
+![demo2](app/assets/images/promo2.png)
+![demo3](app/assets/images/promo3.png)
 
 ## 工夫したポイント
 全体公開チャットは2cｈ等の掲示板を意識していますが、キーワードやタイトルだけで記事の魅力を伝えるよりも、<br>
