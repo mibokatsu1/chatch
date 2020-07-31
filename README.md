@@ -105,27 +105,28 @@ Ruby/Ruby on Rails/JavaScript/jQuery/MySQL/Github/AWS/Visual Studio Code <br>
 
 ### all_users_chatsテーブル
 
+|Column|Type|Options|
+|------|----|-------|
+|name|string||
+|image|string||
+|user_id|integer|null: false, foreign_key: true|
 
-    t.string "name"
-    t.bigint "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "image"
-    t.index ["name"], name: "index_all_users_chats_on_name", unique: true
-    t.index ["user_id"], name: "index_all_users_chats_on_user_id"
-  end
-  
+#### Association
+- has_many :comments
+- belongs_to :user
+
 ### commentsテーブル
-    t.string "content"
-    t.string "image"
-    t.bigint "user_id"
-    t.bigint "all_users_chat_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["all_users_chat_id"], name: "index_comments_on_all_users_chat_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
-  end
+
+|Column|Type|Options|
+|------|----|-------|
+|content|string||
+|image|string||
+|user_id|integer|null: false, foreign_key: true|
+|all_users_chat_id|integer|null: false, foreign_key: true|
+
+#### Association
+- belongs_to :all_users_chat
+- belongs_to :user
 
 ### tag_usersテーブル
 
@@ -138,23 +139,21 @@ Ruby/Ruby on Rails/JavaScript/jQuery/MySQL/Github/AWS/Visual Studio Code <br>
 - belongs_to :tag
 - belongs_to :user
 
-### tag_groupsテーブル
+### taggingsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group_id|integer|null: false, foreign_key: true|
 |tag_id|integer|null: false, foreign_key: true|
+|taggable_id|integer|null: false, foreign_key: true|
 
 #### Association
 - belongs_to :tag
-- belongs_to :group
+- belongs_to :all_users_chat
 
 ### tagsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|tag|string|null: false|
+|name|string|null: false|
 
 #### Association
-- has_many :tag_users
-- has_many :tag_groups
-- has_many :users, through: :tag_users
-- has_many :groups, through: :tag_groups
+- has_many :taggings
+- has_many :all_users_chats, through: :taggings
