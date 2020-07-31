@@ -13,9 +13,9 @@
 * 全体公開チャットの検索
 
 ## 本番環境
-デプロイ先：　URL　http://54.150.76.116/<br>
-テストアカウント： <br>
-ユーザー名 guest<br>
+- デプロイ先：　URL　http://54.150.76.116/<br>
+- テストアカウント： <br>
+ユーザー名　guest<br>
 e-mail　guest@mail.com<br>
 Pass　guest000
 
