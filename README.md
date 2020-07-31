@@ -1,17 +1,62 @@
 # README
 
-## user_groupsテーブル
+##アプリ名
+チャットch
+
+## 概要
+### 初個人開発のチャットアプリ
+主な機能：　・ユーザー登録/編集　（アバター画像追加可能）
+         ・チャットグループの作成/編集/削除
+         ・全体公開チャットの作成/編集/削除/タグ付け　（各チャット毎のメイン画像追加可能）
+         ・各チャットグループへのコメント投稿/削除　（非同期通信対応）
+         ・全体公開チャットの検索
+
+## 本番環境
+デプロイ先：　URL　http://54.150.76.116/
+テストアカウント　ユーザー名 guest
+              e-mail　guest@mail.com
+                Pass　guest000
+
+## 制作背景
+営業職からITエンジニアに転職することを目指して、プログラミング学習を初めて最初に作ったアプリです。
+駆け出しエンジニアを目指している今、私に必要なのは学習、実践、コミュニティー拡大。
+知識や経験が少ないため、人との繋がりが大切と考えました。
+今やTwitterやFaceBook、Lineなどコミュニティーを広げるための有名なアプリは、日常的に利用していますが、
+利用しているアプリの機能はどのように実装されているのかという視点で、学習したことの応用として実装しました。
+
+## DEMO
+
+
+## 工夫したポイント
+全体公開チャットは2cｈ等の掲示板を意識していますが、キーワードやタイトルだけで記事の魅力を伝えるよりも、
+記事の特徴的な画像をピックアップ画面に表示することで、利用者に魅力が伝わりやすく、トップページの見た目も華やかになると思い実装しました。
+同様の観点からユーザーのアバター画像も付けました。
+
+## 使用技術（開発環境）
+Ruby/Ruby on Rails/JavaScript/jQuery/MySQL/Github/AWS/Visual Studio Code
+Ruby 2.6.5
+gem 'acts-as-taggable-on'
+
+## 今後実装したい機能
+検索機能の拡張
+動画の投稿
+見た目を格好良くJavaScriptで装飾する
+リファクタリング（DRY原則）
+
+## DB設計
+
+### user_groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
-### Association
+#### Association
 - belongs_to :group
 - belongs_to :user
 
-## usersテーブル
+### usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -21,59 +66,27 @@
 |password confirmation|integer|null: false|
 |image|text|
 
-### Association
+#### Association
 - has_many :group_users
 - has_many :tag_users
 - has_many :groups, through: :group_users
 - has_many :tags, through: :tag_users
 - has_many :messages
 
-## groupsテーブル
+### groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 
-### Association
+#### Association
 - has_many :group_users
 - has_many :tag-groups
 - has_many :users, through: :group_users
 - has_many :tags, through: :tag-groups
 - has_many :messages
 
-## tag_usersテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|tag_id|integer|null: false, foreign_key: true|
-
-### Association
-- belongs_to :tag
-- belongs_to :user
-
-## tag_groupsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|group_id|integer|null: false, foreign_key: true|
-|tag_id|integer|null: false, foreign_key: true|
-
-### Association
-- belongs_to :tag
-- belongs_to :group
-
-## tagsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|tag|string|null: false|
-
-### Association
-- has_many :tag_users
-- has_many :tag_groups
-- has_many :users, through: :tag_users
-- has_many :groups, through: :tag_groups
-
-## messagesテーブル
+### messagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -82,29 +95,62 @@
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
-### Association
+#### Association
 - belongs_to :group
 - belongs_to :user
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### all_users_chatsテーブル
 
-Things you may want to cover:
 
-* Ruby version
+    t.string "name"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "image"
+    t.index ["name"], name: "index_all_users_chats_on_name", unique: true
+    t.index ["user_id"], name: "index_all_users_chats_on_user_id"
+  end
+  
+### commentsテーブル
+    t.string "content"
+    t.string "image"
+    t.bigint "user_id"
+    t.bigint "all_users_chat_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["all_users_chat_id"], name: "index_comments_on_all_users_chat_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
-* System dependencies
+### tag_usersテーブル
 
-* Configuration
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|tag_id|integer|null: false, foreign_key: true|
 
-* Database creation
+#### Association
+- belongs_to :tag
+- belongs_to :user
 
-* Database initialization
+### tag_groupsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|group_id|integer|null: false, foreign_key: true|
+|tag_id|integer|null: false, foreign_key: true|
 
-* How to run the test suite
+#### Association
+- belongs_to :tag
+- belongs_to :group
 
-* Services (job queues, cache servers, search engines, etc.)
+### tagsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|tag|string|null: false|
 
-* Deployment instructions
-
-* ...
+#### Association
+- has_many :tag_users
+- has_many :tag_groups
+- has_many :users, through: :tag_users
+- has_many :groups, through: :tag_groups
