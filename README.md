@@ -39,6 +39,9 @@ Pass　guest000
 ## 使用技術（開発環境）
 Ruby/Ruby on Rails/JavaScript/jQuery/MySQL/Github/AWS/Visual Studio Code <br>
 * Ruby 2.6.5 <br>
+* Ruby on Rails 6.0.0 <br>
+* gem 'devise' <br>
+* gem 'Capistrano' 3.14.1 <br>
 * gem 'acts-as-taggable-on'
 
 ## 今後実装したい機能
