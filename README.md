@@ -37,7 +37,7 @@ Pass　guest000
 同様の観点からユーザーのアバター画像も付けました。
 
 ## 使用技術（開発環境）
-Ruby/Ruby on Rails/JavaScript/jQuery/MySQL/Github/AWS/Visual Studio Code <br>
+Ruby/Ruby on Rails/JavaScript/jQuery/Haml/Sass/MySQL/Github/AWS/Visual Studio Code <br>
 * Ruby 2.6.5 <br>
 * Ruby on Rails 6.0.0 <br>
 * gem 'devise' <br>
